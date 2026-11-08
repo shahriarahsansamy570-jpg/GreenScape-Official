@@ -732,10 +732,9 @@ footer span {
 
       <div class="about-copy">
         <small>THE CREATOR</small>
-        <h2>আমার সম্পর্কে</h2>
 
         <p>
-          আসসালামু আলাইকুম! আমি শাহরিয়ার আহসান সামী।
+          আসসালামু আলাইকুম! আমি শাহরিয়ার এহসান সামি।
           GreenScape আমার তৈরি একটি ছোট্ট উদ্যোগ, যেখানে
           প্রকৃতির সৌন্দর্যকে ছবির মাধ্যমে তুলে ধরার চেষ্টা করি।
         </p>
@@ -969,62 +968,159 @@ async function loadMyPhotography() {
   const apiURL =
     "https://api.github.com/repos/shahriarahsansamy570-jpg/GreenScape-Official/contents/images";
 
-  try {
-    const response = await fetch(apiURL);
+<script>
+// WORLD NATURE FILTER
 
-    if (!response.ok) {
-      throw new Error("Gallery could not be loaded");
-    }
+const filterButtons = document.querySelectorAll(".filter-btn");
+const worldGallery = document.getElementById("worldGallery");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    worldGallery.querySelectorAll(".photo-card").forEach(card => {
+      card.style.display =
+        filter === "all" || card.dataset.category === filter
+          ? "block"
+          : "none";
+    });
+  });
+});
+
+
+// GITHUB IMAGE LOADER
+
+const repoAPI =
+  "https://api.github.com/repos/shahriarahsansamy570-jpg/GreenScape-Official/contents/";
+
+const imageExtensions = /\.(jpg|jpeg|png|webp|gif)$/i;
+
+
+// MY PHOTOGRAPHY
+
+async function loadMyPhotography() {
+  const gallery = document.getElementById("myGallery");
+
+  try {
+    const response = await fetch(repoAPI + "images");
+
+    if (!response.ok) throw new Error("Images folder not found");
 
     const files = await response.json();
 
-    const photos = files.filter(file => {
-      return (
-        file.type === "file" &&
-        /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name) &&
-        file.name !== "IMG-20260921-WA0066.jpg"
+    const photos = files.filter(file =>
+      file.type === "file" &&
+      imageExtensions.test(file.name) &&
+      file.name !== "IMG-20260921-WA0066.jpg"
+    );
+
+    gallery.innerHTML = "";
+
+    photos.forEach(file => {
+      createPhotoCard(
+        gallery,
+        file.download_url,
+        file.name
       );
     });
 
-    myGallery.innerHTML = "";
-
-    photos.forEach(file => {
-      const card = document.createElement("div");
-      card.className = "photo-card";
-
-      const img = document.createElement("img");
-      img.src = file.download_url;
-      img.alt = file.name;
-      img.loading = "lazy";
-
-      const overlay = document.createElement("div");
-      overlay.className = "photo-overlay";
-
-      const title = document.createElement("div");
-      const heading = document.createElement("h3");
-
-      heading.textContent = file.name;
-
-      title.appendChild(heading);
-      overlay.appendChild(title);
-
-      card.appendChild(img);
-      card.appendChild(overlay);
-
-      myGallery.appendChild(card);
-    });
-
     if (photos.length === 0) {
-      myGallery.textContent = "No photography uploaded yet.";
+      gallery.textContent = "No photography uploaded yet.";
     }
 
   } catch (error) {
-    myGallery.textContent =
-      "Photos could not be loaded. Please try again later.";
+    gallery.textContent = "Photos could not be loaded.";
   }
 }
 
-loadMyPhotography();
+
+// WORLD NATURE AUTOMATIC PHOTOS
+
+async function loadWorldNature() {
+  const categories = [
+    "forest",
+    "mountains",
+    "rivers",
+    "flowers",
+    "animals",
+    "sunset"
+  ];
+
+  for (const category of categories) {
+    try {
+      const response = await fetch(
+        repoAPI + "images/world/" + category
+      );
+
+      if (!response.ok) continue;
+
+      const files = await response.json();
+
+      files
+        .filter(file =>
+          file.type === "file" &&
+          imageExtensions.test(file.name)
+        )
+        .forEach(file => {
+          const card = createPhotoCard(
+            worldGallery,
+            file.download_url,
+            file.name,
+            category
+          );
+        });
+
+    } catch (error) {
+      console.log("Could not load category:", category);
+    }
+  }
+}
+
+
+// CREATE PHOTO CARD
+
+function createPhotoCard(gallery, imageURL, title, category = "") {
+  const card = document.createElement("div");
+  card.className = "photo-card";
+
+  if (category) {
+    card.dataset.category = category;
+
+    const activeFilter = document.querySelector(
+      ".filter-btn.active"
+    );
+
+    if (
+      activeFilter &&
+      activeFilter.dataset.filter !== "all" &&
+      activeFilter.dataset.filter !== category
+    ) {
+      card.style.display = "none";
+    }
+  }
+
+  const img = document.createElement("img");
+  img.src = imageURL;
+  img.alt = title;
+  img.loading = "lazy";
+
+  const overlay = document.createElement("div");
+  overlay.className = "photo-overlay";
+
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+
+  overlay.appendChild(heading);
+  card.appendChild(img);
+  card.appendChild(overlay);
+  gallery.appendChild(card);
+
+  return card;
+}
+
 
 // LIGHTBOX
 
@@ -1039,30 +1135,37 @@ document.addEventListener("click", event => {
 
   const img = card.querySelector("img");
 
-  if (!img) return;
+  if (!img || !img.src) return;
 
   lightboxImage.src = img.src;
   lightbox.classList.add("open");
 });
 
-closeLightbox.addEventListener("click", () => {
+function closePreview() {
   lightbox.classList.remove("open");
   lightboxImage.src = "";
-});
+}
+
+closeLightbox.addEventListener("click", closePreview);
 
 lightbox.addEventListener("click", event => {
   if (event.target === lightbox) {
-    lightbox.classList.remove("open");
-    lightboxImage.src = "";
+    closePreview();
   }
 });
 
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
-    lightbox.classList.remove("open");
-    lightboxImage.src = "";
+    closePreview();
   }
 });
+
+
+// LOAD BOTH GALLERIES
+
+loadMyPhotography();
+loadWorldNature();
+
 </script>
 
 </body>
