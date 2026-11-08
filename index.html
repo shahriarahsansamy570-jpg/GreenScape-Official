@@ -799,6 +799,14 @@ const worldCards = document.querySelectorAll("#worldGallery .photo-card");
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
 
+<script>
+// GALLERY FILTER
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const worldCards = document.querySelectorAll("#worldGallery .photo-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
     filterButtons.forEach(item => item.classList.remove("active"));
     button.classList.add("active");
 
@@ -807,56 +815,76 @@ filterButtons.forEach(button => {
     worldCards.forEach(card => {
       card.style.display =
         filter === "all" || card.dataset.category === filter
-        ? "block"
-        : "none";
+          ? "block"
+          : "none";
     });
-
   });
 });
 
-// MY PHOTOGRAPHY PREVIEW
+// AUTOMATIC MY PHOTOGRAPHY GALLERY
 
-const photoUpload = document.getElementById("photoUpload");
 const myGallery = document.getElementById("myGallery");
 
-photoUpload.addEventListener("change", event => {
+async function loadMyPhotography() {
+  const apiURL =
+    "https://api.github.com/repos/shahriarahsansamy570-jpg/GreenScape-Official/contents/images";
 
-  const files = Array.from(event.target.files);
+  try {
+    const response = await fetch(apiURL);
 
-  files.forEach(file => {
+    if (!response.ok) {
+      throw new Error("Gallery could not be loaded");
+    }
 
-    if (!file.type.startsWith("image/")) return;
+    const files = await response.json();
 
-    const imageURL = URL.createObjectURL(file);
+    const photos = files.filter(file => {
+      return (
+        file.type === "file" &&
+        /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name) &&
+        file.name !== "IMG-20260921-WA0066.jpg"
+      );
+    });
 
-    const card = document.createElement("div");
-    card.className = "photo-card";
+    myGallery.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.src = imageURL;
-    img.alt = file.name;
+    photos.forEach(file => {
+      const card = document.createElement("div");
+      card.className = "photo-card";
 
-    const overlay = document.createElement("div");
-    overlay.className = "photo-overlay";
+      const img = document.createElement("img");
+      img.src = file.download_url;
+      img.alt = file.name;
+      img.loading = "lazy";
 
-    const title = document.createElement("div");
-    const heading = document.createElement("h3");
+      const overlay = document.createElement("div");
+      overlay.className = "photo-overlay";
 
-    heading.textContent = file.name;
+      const title = document.createElement("div");
+      const heading = document.createElement("h3");
 
-    title.appendChild(heading);
-    overlay.appendChild(title);
+      heading.textContent = file.name;
 
-    card.appendChild(img);
-    card.appendChild(overlay);
+      title.appendChild(heading);
+      overlay.appendChild(title);
 
-    myGallery.appendChild(card);
+      card.appendChild(img);
+      card.appendChild(overlay);
 
-  });
+      myGallery.appendChild(card);
+    });
 
-  photoUpload.value = "";
+    if (photos.length === 0) {
+      myGallery.textContent = "No photography uploaded yet.";
+    }
 
-});
+  } catch (error) {
+    myGallery.textContent =
+      "Photos could not be loaded. Please try again later.";
+  }
+}
+
+loadMyPhotography();
 
 // LIGHTBOX
 
@@ -865,7 +893,6 @@ const lightboxImage = document.getElementById("lightboxImage");
 const closeLightbox = document.getElementById("closeLightbox");
 
 document.addEventListener("click", event => {
-
   const card = event.target.closest(".photo-card");
 
   if (!card) return;
@@ -876,6 +903,28 @@ document.addEventListener("click", event => {
 
   lightboxImage.src = img.src;
   lightbox.classList.add("open");
+});
+
+closeLightbox.addEventListener("click", () => {
+  lightbox.classList.remove("open");
+  lightboxImage.src = "";
+});
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+  }
+});
+</script>
+.add("open");
 
 });
 
@@ -893,18 +942,132 @@ lightbox.addEventListener("click", event => {
     lightboxImage.src = "";
   }
 
+<script>
+// GALLERY FILTER
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const worldCards = document.querySelectorAll("#worldGallery .photo-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    worldCards.forEach(card => {
+      card.style.display =
+        filter === "all" || card.dataset.category === filter
+          ? "block"
+          : "none";
+    });
+  });
+});
+
+// AUTOMATIC MY PHOTOGRAPHY GALLERY
+
+const myGallery = document.getElementById("myGallery");
+
+async function loadMyPhotography() {
+  const apiURL =
+    "https://api.github.com/repos/shahriarahsansamy570-jpg/GreenScape-Official/contents/images";
+
+  try {
+    const response = await fetch(apiURL);
+
+    if (!response.ok) {
+      throw new Error("Gallery could not be loaded");
+    }
+
+    const files = await response.json();
+
+    const photos = files.filter(file => {
+      return (
+        file.type === "file" &&
+        /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name) &&
+        file.name !== "IMG-20260921-WA0066.jpg"
+      );
+    });
+
+    myGallery.innerHTML = "";
+
+    photos.forEach(file => {
+      const card = document.createElement("div");
+      card.className = "photo-card";
+
+      const img = document.createElement("img");
+      img.src = file.download_url;
+      img.alt = file.name;
+      img.loading = "lazy";
+
+      const overlay = document.createElement("div");
+      overlay.className = "photo-overlay";
+
+      const title = document.createElement("div");
+      const heading = document.createElement("h3");
+
+      heading.textContent = file.name;
+
+      title.appendChild(heading);
+      overlay.appendChild(title);
+
+      card.appendChild(img);
+      card.appendChild(overlay);
+
+      myGallery.appendChild(card);
+    });
+
+    if (photos.length === 0) {
+      myGallery.textContent = "No photography uploaded yet.";
+    }
+
+  } catch (error) {
+    myGallery.textContent =
+      "Photos could not be loaded. Please try again later.";
+  }
+}
+
+loadMyPhotography();
+
+// LIGHTBOX
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeLightbox = document.getElementById("closeLightbox");
+
+document.addEventListener("click", event => {
+  const card = event.target.closest(".photo-card");
+
+  if (!card) return;
+
+  const img = card.querySelector("img");
+
+  if (!img) return;
+
+  lightboxImage.src = img.src;
+  lightbox.classList.add("open");
+});
+
+closeLightbox.addEventListener("click", () => {
+  lightbox.classList.remove("open");
+  lightboxImage.src = "";
+});
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+  }
 });
 
 document.addEventListener("keydown", event => {
-
   if (event.key === "Escape") {
     lightbox.classList.remove("open");
     lightboxImage.src = "";
   }
-
 });
-
 </script>
+
 
 </body>
 </html>
