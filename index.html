@@ -1,409 +1,569 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10251a">
+<meta name="description" content="GreenScape by Shahriar Ahsan Samy — Discover the beauty of nature through photography.">
 
-  <title>GreenScape | Beautiful Nature</title>
+<title>GreenScape | Discover Nature</title>
 
-  <meta name="description" content="GreenScape by Shahriar Ahsan Samy — Discover the beauty of nature through photography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+html {
+    scroll-behavior: smooth;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f3f8f1;
+    color: #183b29;
+    overflow-x: hidden;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+/* HERO BACKGROUND */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,20,12,.45),
+        rgba(5,20,12,.25) 45%,
+        rgba(5,20,12,.72)
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='sky' x2='0' y2='1'%3E%3Cstop stop-color='%23f6a05d'/%3E%3Cstop offset='.5' stop-color='%23f5c078'/%3E%3Cstop offset='1' stop-color='%237d9b55'/%3E%3C/linearGradient%3E%3ClinearGradient id='field' x2='0' y2='1'%3E%3Cstop stop-color='%236c963f'/%3E%3Cstop offset='1' stop-color='%231b4825'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23sky)'/%3E%3Ccircle cx='1170' cy='350' r='105' fill='%23ffe6a0'/%3E%3Cpath d='M0 550 Q300 460 600 550 T1200 510 T1600 540 V1000 H0Z' fill='%2384a75a'/%3E%3Cpath d='M0 650 Q350 540 700 650 T1400 610 T1600 650 V1000 H0Z' fill='url(%23field)'/%3E%3Cg fill='%23162f1c'%3E%3Cpath d='M280 650 L310 300 L345 650Z'/%3E%3Ccircle cx='310' cy='280' r='125'/%3E%3Ccircle cx='220' cy='330' r='80'/%3E%3Ccircle cx='390' cy='340' r='90'/%3E%3C/g%3E%3Cg fill='%23a4bd69' opacity='.65'%3E%3Cpath d='M0 780 Q400 650 800 790 T1600 760' fill='none' stroke='%23b5c977' stroke-width='9'/%3E%3Cpath d='M0 870 Q400 740 800 870 T1600 840' fill='none' stroke='%23b5c977' stroke-width='7'/%3E%3C/g%3E%3C/svg%3E")
+      center center / cover no-repeat;
+    color: white;
+}
+
+/* NAVIGATION */
+.navbar {
+    width: 100%;
+    min-height: 82px;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,25,16,.48);
+    backdrop-filter: blur(14px);
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: 800;
+    color: #b9f4bd;
+    text-decoration: none;
+    letter-spacing: .5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #aaffb7;
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    border: 1px solid rgba(255,255,255,.5);
+    color: white;
+    background: rgba(255,255,255,.1);
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px 110px;
+    animation: fadeUp 1.2s ease;
+}
+
+.hero-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #e0ffd9;
+    margin-bottom: 22px;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 1.1;
+    color: white;
+    text-shadow: 0 5px 25px rgba(0,0,0,.25);
+}
+
+.hero-content h1 span {
+    color: #c0f2a8;
+}
+
+.hero-content p {
+    max-width: 650px;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #f4fff0;
+}
+
+.primary-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 34px;
+    background: #b5f2a5;
+    color: #153a24;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 40px;
+    transition: .3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+}
+
+.primary-btn:hover {
+    background: white;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
+
+/* INTRO */
+.intro {
+    padding: 100px 8%;
+    text-align: center;
+    background: #f3f8f1;
+}
+
+.section-label {
+    color: #60966b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    margin-top: 16px;
+    color: #204c31;
+}
+
+.intro p {
+    max-width: 760px;
+    margin: 24px auto 0;
+    color: #58705e;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* FOOTER */
+footer {
+    background: #10251a;
+    color: #e8f5e9;
+    padding: 65px 8% 25px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.footer-brand h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #b5f2a5;
+}
+
+.footer-brand p {
+    margin-top: 17px;
+    max-width: 430px;
+    line-height: 1.9;
+    font-size: 14px;
+    color: #c1d3c5;
+}
+
+.footer-info h3,
+.social-area h3 {
+    font-size: 18px;
+    color: #b5f2a5;
+    margin-bottom: 20px;
+}
+
+.footer-info ol {
+    padding-left: 20px;
+}
+
+.footer-info li {
+    margin: 11px 0;
+    color: #b9d5c0;
+}
+
+.footer-info a,
+.social-area a {
+    color: #e8f5e9;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.footer-info a:hover,
+.social-area a:hover {
+    color: #9df3ad;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.social-area {
+    max-width: 1150px;
+    margin: 45px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,.13);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,.13);
+    padding-top: 22px;
+    margin-top: 35px;
+    color: #a8c1ae;
+    font-size: 12px;
+}
+
+/* FLOATING BUTTONS */
+.floating-buttons {
+    position: fixed;
+    right: 22px;
+    bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 100;
+}
+
+.float-btn {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 5px solid #35bd65;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    transition: .3s;
+    text-decoration: none;
+}
+
+.float-btn:hover {
+    transform: scale(1.13);
+    box-shadow: 0 0 20px rgba(53,189,101,.65);
+}
+
+.float-btn svg {
+    width: 29px;
+    height: 29px;
+    fill: none;
+    stroke: #168b48;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
-
-    html {
-      scroll-behavior: smooth;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-      background: #e9f5df;
-    }
-
-    /* HOME HERO */
-
-    .home-hero {
-      min-height: 100vh;
-      min-height: 100svh;
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(8, 20, 12, 0.22),
-          rgba(8, 20, 12, 0.08),
-          rgba(8, 20, 12, 0.20)
-        ),
-        url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=90");
-
-      background-size: cover;
-      background-position: center;
-    }
-
-    /* NAVBAR */
-
+/* MOBILE */
+@media(max-width: 850px) {
     .navbar {
-      position: absolute;
-      top: 20px;
-      left: 2%;
-      width: 96%;
-      z-index: 100;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 14px 25px;
-
-      background: rgba(10, 25, 17, 0.68);
-      border: 1px solid rgba(190, 255, 205, 0.45);
-      border-radius: 60px;
-
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+        padding: 16px 5%;
     }
 
-    .logo {
-      text-decoration: none;
-      color: #d6ffb9;
-
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      font-weight: 700;
-
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #83e86b;
+    .menu-toggle {
+        display: block;
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 6% 20px;
+        background: rgba(8,25,16,.96);
+        backdrop-filter: blur(15px);
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-links a {
-      display: block;
-      text-decoration: none;
-      color: #ffffff;
-
-      font-size: 15px;
-      font-weight: 500;
-
-      padding: 11px 16px;
-      border-radius: 50px;
-
-      transition: 0.3s ease;
-      white-space: nowrap;
+        width: 100%;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
     }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: rgba(110, 224, 100, 0.22);
-      border: 1px solid rgba(200, 255, 200, 0.85);
-      box-shadow: 0 0 18px rgba(140, 255, 130, 0.32);
-      color: #d9ffbd;
-      transform: translateY(-1px);
-    }
-
-    /* MOBILE MENU BUTTON */
-
-    .menu-btn {
-      display: none;
-      border: 1px solid rgba(255,255,255,0.45);
-      background: rgba(255,255,255,0.10);
-      color: white;
-
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    /* HERO TEXT */
 
     .hero-content {
-      width: 100%;
-      text-align: center;
-      padding: 130px 20px 70px;
-      animation: heroFade 1.2s ease both;
+        padding-top: 100px;
+        padding-bottom: 110px;
     }
 
-    .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 9vw, 120px);
-      font-weight: 600;
-      line-height: 1.1;
-
-      color: #ffffff;
-      text-shadow: 0 5px 30px rgba(0,0,0,0.24);
-
-      margin-bottom: 35px;
+    .hero-content p {
+        font-size: 14px;
     }
 
-    .hero-content h1 span {
-      color: #c8ff91;
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
 
-    /* EXPLORE BUTTON */
-
-    .explore-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-
-      padding: 17px 35px;
-
-      text-decoration: none;
-      color: #173c21;
-
-      background: linear-gradient(135deg, #d7ffad, #8fe76c);
-      border: 1px solid rgba(255,255,255,0.95);
-      border-radius: 50px;
-
-      font-size: 17px;
-      font-weight: 700;
-
-      box-shadow: 0 0 24px rgba(178, 255, 135, 0.38);
-
-      transition: transform 0.35s ease,
-                  box-shadow 0.35s ease,
-                  background 0.35s ease;
+    .floating-buttons {
+        right: 12px;
+        bottom: 18px;
+        gap: 10px;
     }
 
-    .explore-btn:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 0 35px rgba(205,255,160,0.65);
+    .float-btn {
+        width: 55px;
+        height: 55px;
     }
+}
 
-    .explore-btn .arrow {
-      font-size: 22px;
-      transition: transform 0.3s ease;
-    }
-
-    .explore-btn:hover .arrow {
-      transform: translateX(5px);
-    }
-
-    /* ANIMATION */
-
-    @keyframes heroFade {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* TABLET */
-
-    @media (max-width: 1050px) {
-      .navbar {
-        padding: 12px 18px;
-      }
-
-      .logo {
+@media(max-width: 420px) {
+    .logo {
         font-size: 25px;
-      }
-
-      .nav-links a {
-        padding: 10px 12px;
-        font-size: 13px;
-      }
     }
 
-    /* MOBILE */
-
-    @media (max-width: 760px) {
-      .navbar {
-        top: 12px;
-        left: 3%;
-        width: 94%;
-        border-radius: 25px;
-        padding: 12px 16px;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-
-        top: calc(100% + 10px);
-        left: 0;
-        width: 100%;
-
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-
-        padding: 14px;
-
-        background: rgba(7, 22, 13, 0.94);
-        border: 1px solid rgba(190,255,205,0.38);
-        border-radius: 24px;
-
-        backdrop-filter: blur(15px);
-      }
-
-      .nav-links.open {
-        display: flex;
-        animation: heroFade 0.25s ease;
-      }
-
-      .nav-links a {
-        text-align: center;
-        font-size: 15px;
-        padding: 13px;
-      }
-
-      .hero-content {
-        padding: 120px 18px 50px;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(48px, 13vw, 76px);
-        margin-bottom: 28px;
-      }
-
-      .explore-btn {
-        padding: 15px 27px;
-        font-size: 15px;
-      }
-
-      .home-hero {
-        background-position: center;
-      }
+    .hero-tag {
+        font-size: 10px;
+        letter-spacing: 2px;
     }
 
-    @media (max-width: 380px) {
-      .logo {
-        font-size: 21px;
-      }
-
-      .hero-content h1 {
-        font-size: 46px;
-      }
+    .intro {
+        padding: 75px 7%;
     }
-  </style>
+
+    footer {
+        padding: 50px 7% 22px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HOME PAGE -->
-  <section class="home-hero">
+<!-- HOME HERO -->
+<header class="hero" id="home">
 
-    <!-- NAVIGATION -->
     <nav class="navbar">
+        <a href="index.html" class="logo">GreenScape</a>
 
-      <a href="index.html" class="logo">
-        Green<span>Scape</span>
-      </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+            ☰
+        </button>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        ☰
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-
-        <li>
-          <a href="index.html" class="active">Home</a>
-        </li>
-
-        <li>
-          <a href="explore.html">Explore Nature</a>
-        </li>
-
-        <li>
-          <a href="world-nature.html">World Nature</a>
-        </li>
-
-        <li>
-          <a href="my-photography.html">My Photography</a>
-        </li>
-
-        <li>
-          <a href="about.html">About Me</a>
-        </li>
-
-        <li>
-          <a href="contact.html">Contact</a>
-        </li>
-
-      </ul>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Gallery</a>
+            <a href="world-nature.html">World Nature</a>
+            <a href="my-photography.html">My Photography</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
 
-    <!-- MAIN HERO CONTENT -->
     <div class="hero-content">
+        <div class="hero-tag">A Journey Through Nature</div>
 
-      <h1>
-        Beautiful <span>Nature</span>
-      </h1>
+        <h1>Discover the Art<br>of <span>Nature</span></h1>
 
-      <a href="explore.html" class="explore-btn">
-        Explore Nature
-        <span class="arrow">→</span>
-      </a>
+        <p>
+            Welcome to GreenScape — a place where nature meets photography.
+            Explore beautiful landscapes, peaceful moments and the timeless
+            beauty of our natural world through the lens of photography.
+        </p>
+
+        <a href="explore.html" class="primary-btn">
+            Explore Gallery →
+        </a>
+    </div>
+
+</header>
+
+<!-- INTRODUCTION -->
+<section class="intro">
+    <div class="section-label">Welcome to GreenScape</div>
+
+    <h2>Every Picture Tells a Story</h2>
+
+    <p>
+        Nature has a story in every sunrise, every river, every forest
+        and every sunset. GreenScape is created to share those beautiful
+        moments with everyone. Discover inspiring natural photography,
+        explore the beauty of the world and enjoy the little details
+        that make our planet special.
+    </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <h2>GreenScape</h2>
+
+            <p>
+                Discover the beauty of nature through photography.
+                A creative space dedicated to landscapes, natural beauty
+                and unforgettable moments.
+            </p>
+        </div>
+
+        <div class="footer-info">
+            <h3>GreenScape Information</h3>
+
+            <ol>
+                <li><a href="about-greenscape.html">About GreenScape</a></li>
+                <li><a href="photography-information.html">Photography Information</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ol>
+        </div>
 
     </div>
 
-  </section>
+    <div class="social-area">
+        <h3>Social Media Links</h3>
 
-  <!-- MOBILE MENU SCRIPT -->
-  <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+        <div class="social-links">
+            <a href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener">YouTube</a>
+            <a href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener">TikTok</a>
+            <a href="YOUR_FACEBOOK_PROFILE_LINK" target="_blank" rel="noopener">Facebook</a>
+        </div>
+    </div>
 
-    menuBtn.addEventListener("click", function () {
-      navLinks.classList.toggle("open");
+    <div class="copyright">
+        © 2026 GreenScape — Created by Shahriar Ahsan Samy.
+    </div>
 
-      menuBtn.innerHTML = navLinks.classList.contains("open")
-        ? "✕"
-        : "☰";
+</footer>
+
+<!-- TWO FLOATING MESSAGE BUTTONS -->
+<div class="floating-buttons">
+
+    <!-- WHATSAPP BUTTON -->
+    <a class="float-btn"
+       href="https://wa.me/8801XXXXXXXXX"
+       target="_blank"
+       rel="noopener"
+       aria-label="Contact through WhatsApp"
+       title="WhatsApp">
+
+        <svg viewBox="0 0 32 32">
+            <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
+            <path d="M11 11.5c.5-1 1.3-.8 1.7-.2l1.2 2c.3.5.1.9-.3 1.3l-.7.7c1 2 2.4 3.3 4.4 4.2l.8-.9c.4-.4.8-.5 1.3-.2l1.8 1c.6.4.8 1.1.3 1.7-.7 1-1.8 1.4-3 1.1-4.2-1-7.6-4.3-8.6-8.1-.3-1.1.1-2 .9-2.6Z"/>
+        </svg>
+
+    </a>
+
+    <!-- FACEBOOK MESSAGE BUTTON -->
+    <a class="float-btn"
+       href="YOUR_FACEBOOK_PROFILE_LINK"
+       target="_blank"
+       rel="noopener"
+       aria-label="Visit Facebook"
+       title="Facebook">
+
+        <svg viewBox="0 0 32 32">
+            <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
+            <path d="M11 16h10M16 11v10M12.5 12.5l7 7M19.5 12.5l-7 7"/>
+        </svg>
+
+    </a>
+
+</div>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
+
+    menuToggle.textContent =
+        navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
     });
-
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtn.innerHTML = "☰";
-      });
-    });
-  </script>
+});
+</script>
 
 </body>
 </html>
+```
