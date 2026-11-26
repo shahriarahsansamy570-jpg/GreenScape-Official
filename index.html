@@ -1,567 +1,800 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10251a">
-<meta name="description" content="Beauty of Nature — Discover the beauty of nature through photography.">
 
-<title>Beauty of Nature | Discover Nature</title>
+<title>Beauty of Nature | Discover the Beauty of Nature</title>
+<meta name="description" content="Discover the beauty of nature through photography.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  --green:#a5f28e;
+  --deep:#10251a;
+  --white:#ffffff;
+  --gold:#ffd28a;
 }
 
-html {
-    scroll-behavior: smooth;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-    font-family: 'DM Sans', sans-serif;
-    background: #f3f8f1;
-    color: #183b29;
-    overflow-x: hidden;
+html{
+  scroll-behavior:smooth;
 }
 
-/* HOME BACKGROUND */
-.hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-image:
-        linear-gradient(
-            180deg,
-            rgba(5,20,12,.48),
-            rgba(5,20,12,.18) 45%,
-            rgba(5,20,12,.72)
-        ),
-        url("https://images.unsplash.com/photo-1571858121713-b443e2932e3c?auto=format&fit=crop&fm=jpg&q=90&w=3000");
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#f4f8f2;
+  color:#173523;
+  overflow-x:hidden;
 }
 
-/* NAVBAR */
-.navbar {
-    width: 100%;
-    min-height: 82px;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(8,25,16,.48);
-    backdrop-filter: blur(14px);
-    position: relative;
-    z-index: 10;
-    border-bottom: 1px solid rgba(255,255,255,.13);
+/* ================= NAVIGATION ================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  min-height:78px;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:rgba(8,24,15,.67);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  box-shadow:0 5px 25px rgba(0,0,0,.12);
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 27px;
-    font-weight: 800;
-    color: #b9f4bd;
-    text-decoration: none;
+.logo{
+  color:white;
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  font-weight:800;
+  text-decoration:none;
+  white-space:nowrap;
+  text-shadow:0 0 15px rgba(165,242,142,.35);
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.logo span{
+  color:var(--green);
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    transition: .3s;
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
 }
 
-.nav-links a:hover {
-    color: #aaffb7;
-    transform: translateY(-2px);
+.nav-links a{
+  position:relative;
+  display:inline-block;
+  padding:10px 12px;
+  color:white;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  white-space:nowrap;
+  border:1px solid transparent;
+  border-radius:30px;
+  transition:.35s ease;
+  overflow:hidden;
 }
 
-.menu-toggle {
-    display: none;
-    border: 1px solid rgba(255,255,255,.5);
-    color: white;
-    background: rgba(255,255,255,.1);
-    padding: 9px 12px;
-    border-radius: 9px;
-    font-size: 22px;
-    cursor: pointer;
+/* Moving light around menu buttons */
+.nav-links a::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:30px;
+  padding:1.5px;
+  background:conic-gradient(
+    from var(--angle,0deg),
+    transparent 0deg,
+    transparent 235deg,
+    var(--green) 285deg,
+    #ffffff 315deg,
+    var(--gold) 340deg,
+    transparent 360deg
+  );
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,
+               linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:0;
+  transition:opacity .3s;
+  animation:spinLight 3s linear infinite;
+  pointer-events:none;
 }
 
-/* HERO CONTENT */
-.hero-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px 20px 110px;
-    animation: fadeUp 1.2s ease;
+.nav-links a:hover::before,
+.nav-links a.active::before{
+  opacity:1;
 }
 
-.hero-tag {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #e0ffd9;
-    margin-bottom: 22px;
-    font-weight: 700;
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--green);
+  background:rgba(165,242,142,.10);
+  box-shadow:0 0 12px rgba(165,242,142,.20);
 }
 
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(46px, 8vw, 92px);
-    line-height: 1.12;
-    color: white;
-    text-shadow: 0 5px 25px rgba(0,0,0,.35);
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:42px;
+  color:white;
+  font-size:25px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(165,242,142,.6);
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(165,242,142,.20);
 }
 
-.hero-content h1 span {
-    color: #c0f2a8;
+/* ================= HERO ================= */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:145px 20px 90px;
+  color:white;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,20,11,.48),
+      rgba(5,20,11,.16),
+      rgba(5,20,11,.48)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5,20,11,.52),
+      transparent 65%
+    ),
+    url("https://assetlyhq.com/blog/images/daughters-coparcenary-rights-ancestral-property-nri-guide/cover.webp");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  animation:heroZoom 22s ease-in-out infinite alternate;
 }
 
-.hero-content p {
-    max-width: 680px;
-    margin-top: 25px;
-    font-size: 16px;
-    line-height: 1.9;
-    color: #f4fff0;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(5,20,11,.12),
+    transparent 45%,
+    rgba(5,20,11,.28)
+  );
+  pointer-events:none;
 }
 
-.primary-btn {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 16px 34px;
-    background: #b5f2a5;
-    color: #153a24;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    border-radius: 40px;
-    transition: .3s;
-    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  animation:fadeUp 1.2s ease both;
 }
 
-.primary-btn:hover {
-    background: white;
-    transform: translateY(-5px);
+.hero-tag{
+  display:inline-block;
+  padding:10px 22px;
+  margin-bottom:25px;
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:30px;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(8px);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  box-shadow:0 0 18px rgba(255,255,255,.12);
 }
 
-/* INTRO */
-.intro {
-    padding: 100px 8%;
-    text-align: center;
-    background: #f3f8f1;
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,8vw,94px);
+  line-height:1.12;
+  margin-bottom:22px;
+  color:#fff;
+  text-shadow:
+    0 4px 20px rgba(0,0,0,.5),
+    0 0 35px rgba(255,221,153,.24);
 }
 
-.section-label {
-    color: #60966b;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.hero h1 span{
+  color:#c5f5a9;
 }
 
-.intro h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 52px);
-    margin-top: 16px;
-    color: #204c31;
+.hero p{
+  max-width:700px;
+  margin:0 auto 35px;
+  color:#f5f7ee;
+  font-size:17px;
+  line-height:1.9;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
 }
 
-.intro p {
-    max-width: 760px;
-    margin: 24px auto 0;
-    color: #58705e;
-    font-size: 15px;
-    line-height: 2;
+/* Explore Gallery glowing button */
+
+.main-button{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 35px;
+  color:#15351f;
+  background:linear-gradient(135deg,#d4ffbd,#8fe879);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:40px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:
+    0 0 12px rgba(165,242,142,.65),
+    0 0 28px rgba(165,242,142,.40),
+    0 8px 25px rgba(0,0,0,.25);
+  transition:.35s ease;
+  animation:buttonGlow 2.5s ease-in-out infinite;
+  overflow:hidden;
 }
 
-/* FOOTER */
-footer {
-    background: #10251a;
-    color: #e8f5e9;
-    padding: 65px 8% 25px;
+.main-button::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-100%;
+  width:55%;
+  height:200%;
+  transform:rotate(25deg);
+  background:rgba(255,255,255,.65);
+  filter:blur(8px);
+  animation:shine 3.5s ease-in-out infinite;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    max-width: 1150px;
-    margin: auto;
+.main-button:hover{
+  transform:translateY(-5px) scale(1.04);
+  box-shadow:
+    0 0 18px rgba(165,242,142,.9),
+    0 0 45px rgba(165,242,142,.7);
 }
 
-.footer-brand h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: #b5f2a5;
+/* ================= INTRODUCTION ================= */
+
+.intro{
+  padding:100px 22px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,rgba(165,242,142,.14),transparent 55%),
+    #f4f8f2;
 }
 
-.footer-brand p {
-    margin-top: 17px;
-    max-width: 430px;
-    line-height: 1.9;
-    font-size: 14px;
-    color: #c1d3c5;
+.intro-content{
+  max-width:850px;
+  margin:auto;
 }
 
-.footer-info h3,
-.social-area h3 {
-    font-size: 18px;
-    color: #b5f2a5;
-    margin-bottom: 20px;
+.section-label{
+  color:#57975a;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:15px;
 }
 
-.footer-info ol {
-    padding-left: 20px;
+.intro h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,52px);
+  color:#17452b;
+  margin-bottom:22px;
 }
 
-.footer-info li {
-    margin: 11px 0;
-    color: #b9d5c0;
+.intro p{
+  color:#64776a;
+  font-size:16px;
+  line-height:2;
 }
 
-.footer-info a,
-.social-area a {
-    color: #e8f5e9;
-    text-decoration: none;
-    font-size: 14px;
-    transition: .25s;
+/* ================= FOOTER ================= */
+
+footer{
+  position:relative;
+  background:linear-gradient(135deg,#10251a,#173c28);
+  color:white;
+  padding:65px 7% 25px;
+  overflow:hidden;
 }
 
-.footer-info a:hover,
-.social-area a:hover {
-    color: #9df3ad;
-    text-decoration: underline;
+.footer-content{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:55px;
 }
 
-.social-area {
-    max-width: 1150px;
-    margin: 45px auto 0;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255,255,255,.13);
+footer h3{
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  color:#b9f5a6;
+  margin-bottom:24px;
 }
 
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+.footer-links{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:17px;
 }
 
-.copyright {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,.13);
-    padding-top: 22px;
-    margin-top: 35px;
-    color: #a8c1ae;
-    font-size: 12px;
+.footer-links a,
+.social-links a{
+  color:#e2eee4;
+  font-size:14px;
+  text-decoration:none;
+  transition:.3s;
 }
 
-/* FLOATING BUTTONS */
-.floating-buttons {
-    position: fixed;
-    right: 22px;
-    bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 100;
+.footer-links a:hover,
+.social-links a:hover{
+  color:var(--green);
+  text-shadow:0 0 12px rgba(165,242,142,.7);
 }
 
-.float-btn {
-    width: 62px;
-    height: 62px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border: 5px solid #35bd65;
-    border-radius: 50%;
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
-    transition: .3s;
-    text-decoration: none;
+.social-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
 }
 
-.float-btn:hover {
-    transform: scale(1.13);
-    box-shadow: 0 0 20px rgba(53,189,101,.65);
+.copyright{
+  max-width:1150px;
+  margin:55px auto 0;
+  padding-top:23px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.16);
+  color:#c4d5c7;
+  font-size:13px;
 }
 
-.float-btn svg {
-    width: 29px;
-    height: 29px;
-    fill: none;
-    stroke: #168b48;
-    stroke-width: 2.3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+/* ================= FLOATING BUTTONS ================= */
+
+.floating-buttons{
+  position:fixed;
+  right:22px;
+  bottom:25px;
+  z-index:1100;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.float-btn{
+  position:relative;
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:4px solid #72e69b;
+  border-radius:50%;
+  box-shadow:
+    0 0 8px #72e69b,
+    0 0 18px rgba(75,225,132,.7),
+    0 5px 18px rgba(0,0,0,.25);
+  transition:.35s ease;
+  animation:floatGlow 2.5s ease-in-out infinite;
 }
 
-/* MOBILE */
-@media(max-width: 850px) {
-    .navbar {
-        padding: 16px 5%;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 12px 6% 20px;
-        background: rgba(8,25,16,.96);
-        backdrop-filter: blur(15px);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        width: 100%;
-        padding: 13px 0;
-        border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-    .hero {
-        background-position: center;
-    }
-
-    .hero-content {
-        padding-top: 100px;
-        padding-bottom: 110px;
-    }
-
-    .hero-content p {
-        font-size: 14px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .floating-buttons {
-        right: 12px;
-        bottom: 18px;
-        gap: 10px;
-    }
-
-    .float-btn {
-        width: 55px;
-        height: 55px;
-    }
+.float-btn::before{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:2px solid rgba(114,230,155,.65);
+  border-radius:50%;
+  animation:ringPulse 2s ease-out infinite;
 }
 
-@media(max-width: 420px) {
-    .logo {
-        font-size: 22px;
-    }
+.float-btn:hover{
+  transform:scale(1.13) rotate(5deg);
+  box-shadow:
+    0 0 15px #72e69b,
+    0 0 35px #72e69b;
+}
 
-    .hero-tag {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
+.float-btn svg{
+  width:28px;
+  height:28px;
+  fill:#17452b;
+  position:relative;
+  z-index:1;
+}
 
-    .intro {
-        padding: 75px 7%;
-    }
+/* ================= ANIMATIONS ================= */
 
-    footer {
-        padding: 50px 7% 22px;
-    }
+@property --angle{
+  syntax:"<angle>";
+  initial-value:0deg;
+  inherits:false;
+}
+
+@keyframes spinLight{
+  to{--angle:360deg;}
+}
+
+@keyframes buttonGlow{
+  0%,100%{
+    box-shadow:0 0 12px rgba(165,242,142,.55),0 0 25px rgba(165,242,142,.25);
+  }
+  50%{
+    box-shadow:0 0 20px rgba(165,242,142,.95),0 0 42px rgba(165,242,142,.65);
+  }
+}
+
+@keyframes shine{
+  0%{left:-100%;}
+  55%,100%{left:150%;}
+}
+
+@keyframes floatGlow{
+  0%,100%{box-shadow:0 0 8px #72e69b,0 0 18px rgba(75,225,132,.5);}
+  50%{box-shadow:0 0 15px #72e69b,0 0 32px rgba(75,225,132,.9);}
+}
+
+@keyframes ringPulse{
+  0%{transform:scale(.9);opacity:.8;}
+  100%{transform:scale(1.35);opacity:0;}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(35px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes heroZoom{
+  from{background-size:100% 100%;}
+  to{background-size:110% 110%;}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+  .navbar{
+    min-height:70px;
+    padding:13px 5%;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:5px;
+    padding:15px 5% 22px;
+    background:rgba(8,24,15,.97);
+    backdrop-filter:blur(18px);
+    border-top:1px solid rgba(255,255,255,.15);
+  }
+
+  .nav-links.show{
+    display:flex;
+    animation:fadeUp .3s ease;
+  }
+
+  .nav-links a{
+    width:100%;
+    padding:14px 16px;
+    font-size:14px;
+    border-radius:12px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active{
+    background:rgba(165,242,142,.12);
+  }
+
+  .footer-content{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+
+@media(max-width:600px){
+
+  .logo{
+    font-size:21px;
+  }
+
+  .hero{
+    min-height:92vh;
+    padding:125px 18px 75px;
+    background-position:center;
+  }
+
+  .hero h1{
+    font-size:clamp(43px,12vw,65px);
+  }
+
+  .hero p{
+    font-size:14px;
+    line-height:1.8;
+  }
+
+  .hero-tag{
+    font-size:10px;
+    letter-spacing:2px;
+  }
+
+  .main-button{
+    padding:15px 28px;
+    font-size:14px;
+  }
+
+  .intro{
+    padding:75px 20px;
+  }
+
+  .intro p{
+    font-size:14px;
+  }
+
+  footer{
+    padding:50px 7% 22px;
+  }
+
+  .footer-links{
+    grid-template-columns:1fr;
+  }
+
+  .floating-buttons{
+    right:14px;
+    bottom:18px;
+    gap:13px;
+  }
+
+  .float-btn{
+    width:54px;
+    height:54px;
+  }
+
+  .copyright{
+    font-size:11px;
+    line-height:1.8;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero" id="home">
+<!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">Beauty of Nature</a>
+<header class="navbar">
 
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Open navigation menu">
-            ☰
-        </button>
+  <a href="index.html" class="logo">
+    Beauty <span>of Nature</span>
+  </a>
 
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="explore.html">Explore Gallery</a>
-            <a href="world-nature.html">World Nature</a>
-            <a href="my-photography.html">My Photography</a>
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >☰</button>
 
-    <div class="hero-content">
-        <div class="hero-tag">A Journey Through Nature</div>
-
-        <h1>Beauty of<br><span>Nature</span></h1>
-
-        <p>
-            Welcome to Beauty of Nature — a place where nature meets
-            photography. Explore beautiful landscapes, peaceful moments
-            and the timeless beauty of our natural world through the
-            lens of photography.
-        </p>
-
-        <a href="explore.html" class="primary-btn">
-            Explore Gallery →
-        </a>
-    </div>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="explore.html">Explore Gallery</a>
+    <a href="world-nature.html">World Nature</a>
+    <a href="my-photography.html">My Photography</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
 </header>
 
+<!-- ================= HOME HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-tag">
+      CAPTURE · EXPLORE · FEEL
+    </div>
+
+    <h1>
+      Beauty <span>of Nature</span>
+    </h1>
+
+    <p>
+      Discover the breathtaking beauty of nature.
+      Explore peaceful green fields, beautiful villages,
+      forests, rivers, mountains and unforgettable moments
+      through photography.
+    </p>
+
+    <a href="explore.html" class="main-button">
+      <span>Explore Gallery</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ================= INTRO ================= -->
+
 <section class="intro">
-    <div class="section-label">Welcome to Beauty of Nature</div>
+
+  <div class="intro-content">
+
+    <div class="section-label">
+      THE BEAUTY AROUND US
+    </div>
 
     <h2>Every Picture Tells a Story</h2>
 
     <p>
-        Nature has a story in every sunrise, every river, every forest
-        and every sunset. Beauty of Nature is created to share those
-        beautiful moments with everyone. Discover inspiring natural
-        photography, explore the beauty of the world and enjoy the
-        little details that make our planet special.
+      Nature has countless beautiful stories to tell.
+      From the golden light of the afternoon to the peaceful
+      beauty of green landscapes, every moment has something
+      special. Through photography, we capture those moments
+      and share the beauty of our world.
+      Welcome to Beauty of Nature.
     </p>
+
+  </div>
+
 </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-    <div class="footer-content">
+  <div class="footer-content">
 
-        <div class="footer-brand">
-            <h2>Beauty of Nature</h2>
+    <div>
 
-            <p>
-                Discover the beauty of nature through photography.
-                A creative space dedicated to landscapes, natural
-                beauty and unforgettable moments.
-            </p>
-        </div>
+      <h3>Beauty of Nature Information</h3>
 
-        <div class="footer-info">
-            <h3>Beauty of Nature Information</h3>
-
-            <ol>
-                <li><a href="about-greenscape.html">About Beauty of Nature</a></li>
-                <li><a href="photography-information.html">Photography Information</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ol>
-        </div>
+      <div class="footer-links">
+        <a href="about.html">1. About Beauty of Nature</a>
+        <a href="photography-information.html">2. Photography Information</a>
+        <a href="faqs.html">3. FAQs</a>
+        <a href="privacy-policy.html">4. Privacy Policy</a>
+        <a href="terms.html">5. Terms & Conditions</a>
+        <a href="contact.html">6. Contact</a>
+      </div>
 
     </div>
 
-    <div class="social-area">
-        <h3>Social Media Links</h3>
+    <div>
 
-        <div class="social-links">
-            <a href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener">YouTube</a>
-            <a href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener">TikTok</a>
-            <a href="YOUR_FACEBOOK_PROFILE_LINK" target="_blank" rel="noopener">Facebook</a>
-        </div>
+      <h3>Social Media Links</h3>
+
+      <div class="social-links">
+        <a href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener">YouTube</a>
+        <a href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener">TikTok</a>
+        <a href="YOUR_FACEBOOK_PROFILE_LINK" target="_blank" rel="noopener">Facebook</a>
+      </div>
+
     </div>
 
-    <div class="copyright">
-        © 2026 Beauty of Nature — Created by Shahriar Ahsan Samy.
-    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 Beauty of Nature — Created by Shahriar Ahsan Samy.
+  </div>
 
 </footer>
 
-<!-- TWO FLOATING BUTTONS -->
+<!-- ================= FLOATING MESSAGE BUTTONS ================= -->
+
 <div class="floating-buttons">
 
-    <!-- WHATSAPP -->
-    <a class="float-btn"
-       href="https://wa.me/8801XXXXXXXXX"
-       target="_blank"
-       rel="noopener"
-       aria-label="Contact through WhatsApp"
-       title="WhatsApp">
+  <!-- WhatsApp-style message button -->
+  <a
+    class="float-btn"
+    href="https://wa.me/8801XXXXXXXXX"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp Message"
+  >
 
-        <svg viewBox="0 0 32 32">
-            <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
-            <path d="M11 11.5c.5-1 1.3-.8 1.7-.2l1.2 2c.3.5.1.9-.3 1.3l-.7.7c1 2 2.4 3.3 4.4 4.2l.8-.9c.4-.4.8-.5 1.3-.2l1.8 1c.6.4.8 1.1.3 1.7-.7 1-1.8 1.4-3 1.1-4.2-1-7.6-4.3-8.6-8.1-.3-1.1.1-2 .9-2.6Z"/>
-        </svg>
-    </a>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.5-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.8.9-3.1-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.3.2-.3.6-1 .1-.1 0-.3 0-.4l-.7-1.6c-.2-.4-.4-.3-.5-.3h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4 1.4.6 1.9.6 2.6.5.4-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/>
+    </svg>
 
-    <!-- FACEBOOK -->
-    <a class="float-btn"
-       href="YOUR_FACEBOOK_PROFILE_LINK"
-       target="_blank"
-       rel="noopener"
-       aria-label="Visit Facebook"
-       title="Facebook">
+  </a>
 
-        <svg viewBox="0 0 32 32">
-            <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
-            <path d="M11 16h10M16 11v10M12.5 12.5l7 7M19.5 12.5l-7 7"/>
-        </svg>
-    </a>
+  <!-- Facebook-style message button -->
+  <a
+    class="float-btn"
+    href="YOUR_FACEBOOK_PROFILE_LINK"
+    target="_blank"
+    rel="noopener"
+    aria-label="Facebook Message"
+  >
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.8 1.4 5.3 3.7 7L5 22l4.2-2.1c.9.3 1.9.5 2.8.5 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm1 13.1-2.6-2.8-5 2.8 5.5-5.9 2.7 2.8 4.9-2.8-5.5 5.9z"/>
+    </svg>
+
+  </a>
 
 </div>
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", function() {
-    navLinks.classList.toggle("active");
+menuToggle.addEventListener("click", function(){
 
-    menuToggle.textContent =
-        navLinks.classList.contains("active") ? "✕" : "☰";
+  const isOpen = navLinks.classList.toggle("show");
+
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+  menuToggle.setAttribute("aria-expanded", isOpen);
+
 });
 
-navLinks.querySelectorAll("a").forEach(function(link) {
-    link.addEventListener("click", function() {
-        navLinks.classList.remove("active");
-        menuToggle.textContent = "☰";
-    });
+document.querySelectorAll("#navLinks a").forEach(function(link){
+
+  link.addEventListener("click", function(){
+
+    navLinks.classList.remove("show");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-expanded", "false");
+
+  });
+
 });
 </script>
 
