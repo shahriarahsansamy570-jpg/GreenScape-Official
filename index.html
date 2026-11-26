@@ -2,272 +2,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#8edb78">
-<meta name="description" content="GreenScape by Shahriar Ahsan Samy. Discover, capture and share the beauty of nature.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GreenScape | Beautiful Nature</title>
+  <title>GreenScape | Beautiful Nature</title>
 
-<link rel="stylesheet" href="style.css">
+  <meta name="description" content="GreenScape by Shahriar Ahsan Samy — Discover the beauty of nature through photography.">
 
-<style>
-/* HOME PAGE EXTRA DESIGN */
+  <link rel="stylesheet" href="style.css">
 
-.hero {
-  position: relative;
-  min-height: 100vh;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(8,35,17,.42),
-      rgba(8,35,17,.08),
-      rgba(8,35,17,.20)
-    ),
-    url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=90')
-    center center / cover no-repeat;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-.hero .welcome {
-  font-size: 15px;
-  letter-spacing: 5px;
-  font-weight: 700;
-  color: #e4ffd9;
-  margin-bottom: 18px;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.hero h1 {
-  font-size: clamp(55px, 9vw, 105px);
-  color: #fff;
-  font-weight: 600;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.hero .subtitle {
-  font-size: 22px;
-  font-family: 'Playfair Display', serif;
-  color: #eaffdf;
-  margin-bottom: 15px;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      background: #e9f5df;
+    }
 
-.hero .description {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  color: white;
-  font-size: 17px;
-  line-height: 1.8;
-}
+    /* HOME HERO */
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
+    .home-hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
 
-.hero-buttons .btn {
-  padding: 15px 30px;
-  font-size: 15px;
-}
+      background:
+        linear-gradient(
+          180deg,
+          rgba(8, 20, 12, 0.22),
+          rgba(8, 20, 12, 0.08),
+          rgba(8, 20, 12, 0.20)
+        ),
+        url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=90");
 
-.btn-outline {
-  display: inline-block;
-  padding: 14px 28px;
-  border: 1px solid white;
-  border-radius: 50px;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  transition: .4s;
-}
+      background-size: cover;
+      background-position: center;
+    }
 
-.btn-outline:hover {
-  background: white;
-  color: #245b35;
-  box-shadow: 0 0 20px white;
-}
+    /* NAVBAR */
 
-.home-intro {
-  background: #f3faed;
-}
+    .navbar {
+      position: absolute;
+      top: 20px;
+      left: 2%;
+      width: 96%;
+      z-index: 100;
 
-.home-intro .section-title {
-  color: #245b35;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-.home-intro .image-card {
-  text-decoration: none;
-  color: #245b35;
-}
+      padding: 14px 25px;
 
-.home-intro .image-card img {
-  height: 300px;
-}
+      background: rgba(10, 25, 17, 0.68);
+      border: 1px solid rgba(190, 255, 205, 0.45);
+      border-radius: 60px;
 
-.home-intro .caption {
-  font-size: 17px;
-}
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-.home-bottom {
-  padding: 65px 20px;
-  text-align: center;
-  color: white;
-  background: linear-gradient(120deg, #245b35, #548e48);
-}
+    .logo {
+      text-decoration: none;
+      color: #d6ffb9;
 
-.home-bottom h2 {
-  font-size: 35px;
-  margin-bottom: 12px;
-}
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
 
-.home-bottom p {
-  letter-spacing: 3px;
-  font-size: 14px;
-}
+      white-space: nowrap;
+    }
 
-@media(max-width: 600px) {
-  .hero {
-    min-height: 90vh;
-    background-position: 55% center;
-  }
+    .logo span {
+      color: #83e86b;
+    }
 
-  .hero .welcome {
-    font-size: 12px;
-    letter-spacing: 3px;
-  }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
 
-  .hero .description {
-    font-size: 15px;
-  }
+    .nav-links a {
+      display: block;
+      text-decoration: none;
+      color: #ffffff;
 
-  .hero-buttons {
-    gap: 10px;
-  }
+      font-size: 15px;
+      font-weight: 500;
 
-  .hero-buttons .btn,
-  .btn-outline {
-    padding: 12px 20px;
-    font-size: 13px;
-  }
-}
-</style>
+      padding: 11px 16px;
+      border-radius: 50px;
+
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(110, 224, 100, 0.22);
+      border: 1px solid rgba(200, 255, 200, 0.85);
+      box-shadow: 0 0 18px rgba(140, 255, 130, 0.32);
+      color: #d9ffbd;
+      transform: translateY(-1px);
+    }
+
+    /* MOBILE MENU BUTTON */
+
+    .menu-btn {
+      display: none;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.10);
+      color: white;
+
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* HERO TEXT */
+
+    .hero-content {
+      width: 100%;
+      text-align: center;
+      padding: 130px 20px 70px;
+      animation: heroFade 1.2s ease both;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 9vw, 120px);
+      font-weight: 600;
+      line-height: 1.1;
+
+      color: #ffffff;
+      text-shadow: 0 5px 30px rgba(0,0,0,0.24);
+
+      margin-bottom: 35px;
+    }
+
+    .hero-content h1 span {
+      color: #c8ff91;
+    }
+
+    /* EXPLORE BUTTON */
+
+    .explore-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      padding: 17px 35px;
+
+      text-decoration: none;
+      color: #173c21;
+
+      background: linear-gradient(135deg, #d7ffad, #8fe76c);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 50px;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      box-shadow: 0 0 24px rgba(178, 255, 135, 0.38);
+
+      transition: transform 0.35s ease,
+                  box-shadow 0.35s ease,
+                  background 0.35s ease;
+    }
+
+    .explore-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 0 35px rgba(205,255,160,0.65);
+    }
+
+    .explore-btn .arrow {
+      font-size: 22px;
+      transition: transform 0.3s ease;
+    }
+
+    .explore-btn:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    /* ANIMATION */
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TABLET */
+
+    @media (max-width: 1050px) {
+      .navbar {
+        padding: 12px 18px;
+      }
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .nav-links a {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+      .navbar {
+        top: 12px;
+        left: 3%;
+        width: 94%;
+        border-radius: 25px;
+        padding: 12px 16px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+
+        padding: 14px;
+
+        background: rgba(7, 22, 13, 0.94);
+        border: 1px solid rgba(190,255,205,0.38);
+        border-radius: 24px;
+
+        backdrop-filter: blur(15px);
+      }
+
+      .nav-links.open {
+        display: flex;
+        animation: heroFade 0.25s ease;
+      }
+
+      .nav-links a {
+        text-align: center;
+        font-size: 15px;
+        padding: 13px;
+      }
+
+      .hero-content {
+        padding: 120px 18px 50px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(48px, 13vw, 76px);
+        margin-bottom: 28px;
+      }
+
+      .explore-btn {
+        padding: 15px 27px;
+        font-size: 15px;
+      }
+
+      .home-hero {
+        background-position: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: 21px;
+      }
+
+      .hero-content h1 {
+        font-size: 46px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<header class="navbar">
+  <!-- HOME PAGE -->
+  <section class="home-hero">
 
-  <a href="index.html" class="logo">🌿 GreenScape</a>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
 
-  <nav class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="explore.html">Explore Nature</a>
-    <a href="world-nature.html">World Nature</a>
-    <a href="my-photography.html">My Photography</a>
-    <a href="about.html">About Me</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-</header>
-
-<!-- HERO -->
-<main>
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <p class="welcome">WELCOME TO GREENSCAPE</p>
-
-    <h1>Beautiful Nature</h1>
-
-    <p class="subtitle">A gift for our world.</p>
-
-    <p class="description">
-      Discover the beauty of nature, explore amazing landscapes
-      and experience the peaceful world of greenery.
-      Every moment tells a beautiful story.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="explore.html" class="btn">
-        Explore Nature →
+      <a href="index.html" class="logo">
+        Green<span>Scape</span>
       </a>
 
-      <a href="my-photography.html" class="btn-outline">
-        My Photography
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html" class="active">Home</a>
+        </li>
+
+        <li>
+          <a href="explore.html">Explore Nature</a>
+        </li>
+
+        <li>
+          <a href="world-nature.html">World Nature</a>
+        </li>
+
+        <li>
+          <a href="my-photography.html">My Photography</a>
+        </li>
+
+        <li>
+          <a href="about.html">About Me</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- MAIN HERO CONTENT -->
+    <div class="hero-content">
+
+      <h1>
+        Beautiful <span>Nature</span>
+      </h1>
+
+      <a href="explore.html" class="explore-btn">
+        Explore Nature
+        <span class="arrow">→</span>
       </a>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- MOBILE MENU SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-<!-- DISCOVER SECTION -->
-<section class="section home-intro">
+    menuBtn.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
 
-  <h2 class="section-title">Discover The Beauty</h2>
+      menuBtn.innerHTML = navLinks.classList.contains("open")
+        ? "✕"
+        : "☰";
+    });
 
-  <p class="section-description">
-    A beautiful world waiting to be explored.
-  </p>
-
-  <div class="gallery">
-
-    <a href="explore.html" class="image-card">
-      <img
-        src="Images/IMG_20260911_161916.jpg"
-        alt="Nature Photography"
-      >
-      <div class="caption">Explore Nature →</div>
-    </a>
-
-    <a href="world-nature.html" class="image-card">
-      <img
-        src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
-        alt="Beautiful Forest"
-      >
-      <div class="caption">World Nature →</div>
-    </a>
-
-    <a href="my-photography.html" class="image-card">
-      <img
-        src="Images/IMG_20260911_161916.jpg"
-        alt="My Photography"
-      >
-      <div class="caption">My Photography →</div>
-    </a>
-
-  </div>
-
-</section>
-
-<!-- BOTTOM SECTION -->
-<section class="home-bottom">
-
-  <h2>GreenScape</h2>
-
-  <p>DISCOVER • CAPTURE • SHARE</p>
-
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-  <h2>GreenScape</h2>
-
-  <p>Created with love for nature.</p>
-
-  <p>© 2026 GreenScape — Created by Shahriar Ahsan Samy.</p>
-
-</footer>
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.innerHTML = "☰";
+      });
+    });
+  </script>
 
 </body>
 </html>
