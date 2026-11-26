@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10251a">
-<meta name="description" content="GreenScape by Shahriar Ahsan Samy — Discover the beauty of nature through photography.">
+<meta name="description" content="Beauty of Nature — Discover the beauty of nature through photography.">
 
-<title>GreenScape | Discover Nature</title>
+<title>Beauty of Nature | Discover Nature</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,25 +31,28 @@ body {
     overflow-x: hidden;
 }
 
-/* HERO BACKGROUND */
+/* HOME BACKGROUND */
 .hero {
     min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5,20,12,.45),
-        rgba(5,20,12,.25) 45%,
-        rgba(5,20,12,.72)
-      ),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='sky' x2='0' y2='1'%3E%3Cstop stop-color='%23f6a05d'/%3E%3Cstop offset='.5' stop-color='%23f5c078'/%3E%3Cstop offset='1' stop-color='%237d9b55'/%3E%3C/linearGradient%3E%3ClinearGradient id='field' x2='0' y2='1'%3E%3Cstop stop-color='%236c963f'/%3E%3Cstop offset='1' stop-color='%231b4825'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23sky)'/%3E%3Ccircle cx='1170' cy='350' r='105' fill='%23ffe6a0'/%3E%3Cpath d='M0 550 Q300 460 600 550 T1200 510 T1600 540 V1000 H0Z' fill='%2384a75a'/%3E%3Cpath d='M0 650 Q350 540 700 650 T1400 610 T1600 650 V1000 H0Z' fill='url(%23field)'/%3E%3Cg fill='%23162f1c'%3E%3Cpath d='M280 650 L310 300 L345 650Z'/%3E%3Ccircle cx='310' cy='280' r='125'/%3E%3Ccircle cx='220' cy='330' r='80'/%3E%3Ccircle cx='390' cy='340' r='90'/%3E%3C/g%3E%3Cg fill='%23a4bd69' opacity='.65'%3E%3Cpath d='M0 780 Q400 650 800 790 T1600 760' fill='none' stroke='%23b5c977' stroke-width='9'/%3E%3Cpath d='M0 870 Q400 740 800 870 T1600 840' fill='none' stroke='%23b5c977' stroke-width='7'/%3E%3C/g%3E%3C/svg%3E")
-      center center / cover no-repeat;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5,20,12,.48),
+            rgba(5,20,12,.18) 45%,
+            rgba(5,20,12,.72)
+        ),
+        url("https://images.unsplash.com/photo-1571858121713-b443e2932e3c?auto=format&fit=crop&fm=jpg&q=90&w=3000");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 .navbar {
     width: 100%;
     min-height: 82px;
@@ -66,17 +69,16 @@ body {
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 29px;
+    font-size: 27px;
     font-weight: 800;
     color: #b9f4bd;
     text-decoration: none;
-    letter-spacing: .5px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 27px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -126,10 +128,10 @@ body {
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: 1.1;
+    font-size: clamp(46px, 8vw, 92px);
+    line-height: 1.12;
     color: white;
-    text-shadow: 0 5px 25px rgba(0,0,0,.25);
+    text-shadow: 0 5px 25px rgba(0,0,0,.35);
 }
 
 .hero-content h1 span {
@@ -137,7 +139,7 @@ body {
 }
 
 .hero-content p {
-    max-width: 650px;
+    max-width: 680px;
     margin-top: 25px;
     font-size: 16px;
     line-height: 1.9;
@@ -161,7 +163,6 @@ body {
 .primary-btn:hover {
     background: white;
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.3);
 }
 
 /* INTRO */
@@ -251,7 +252,6 @@ footer {
 .social-area a:hover {
     color: #9df3ad;
     text-decoration: underline;
-    font-size: 15px;
 }
 
 .social-area {
@@ -362,6 +362,10 @@ footer {
         border-bottom: 1px solid rgba(255,255,255,.1);
     }
 
+    .hero {
+        background-position: center;
+    }
+
     .hero-content {
         padding-top: 100px;
         padding-bottom: 110px;
@@ -390,7 +394,7 @@ footer {
 
 @media(max-width: 420px) {
     .logo {
-        font-size: 25px;
+        font-size: 22px;
     }
 
     .hero-tag {
@@ -411,13 +415,13 @@ footer {
 
 <body>
 
-<!-- HOME HERO -->
 <header class="hero" id="home">
 
     <nav class="navbar">
-        <a href="index.html" class="logo">GreenScape</a>
+        <a href="index.html" class="logo">Beauty of Nature</a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation menu">
             ☰
         </button>
 
@@ -434,12 +438,13 @@ footer {
     <div class="hero-content">
         <div class="hero-tag">A Journey Through Nature</div>
 
-        <h1>Discover the Art<br>of <span>Nature</span></h1>
+        <h1>Beauty of<br><span>Nature</span></h1>
 
         <p>
-            Welcome to GreenScape — a place where nature meets photography.
-            Explore beautiful landscapes, peaceful moments and the timeless
-            beauty of our natural world through the lens of photography.
+            Welcome to Beauty of Nature — a place where nature meets
+            photography. Explore beautiful landscapes, peaceful moments
+            and the timeless beauty of our natural world through the
+            lens of photography.
         </p>
 
         <a href="explore.html" class="primary-btn">
@@ -449,41 +454,39 @@ footer {
 
 </header>
 
-<!-- INTRODUCTION -->
 <section class="intro">
-    <div class="section-label">Welcome to GreenScape</div>
+    <div class="section-label">Welcome to Beauty of Nature</div>
 
     <h2>Every Picture Tells a Story</h2>
 
     <p>
         Nature has a story in every sunrise, every river, every forest
-        and every sunset. GreenScape is created to share those beautiful
-        moments with everyone. Discover inspiring natural photography,
-        explore the beauty of the world and enjoy the little details
-        that make our planet special.
+        and every sunset. Beauty of Nature is created to share those
+        beautiful moments with everyone. Discover inspiring natural
+        photography, explore the beauty of the world and enjoy the
+        little details that make our planet special.
     </p>
 </section>
 
-<!-- FOOTER -->
 <footer>
 
     <div class="footer-content">
 
         <div class="footer-brand">
-            <h2>GreenScape</h2>
+            <h2>Beauty of Nature</h2>
 
             <p>
                 Discover the beauty of nature through photography.
-                A creative space dedicated to landscapes, natural beauty
-                and unforgettable moments.
+                A creative space dedicated to landscapes, natural
+                beauty and unforgettable moments.
             </p>
         </div>
 
         <div class="footer-info">
-            <h3>GreenScape Information</h3>
+            <h3>Beauty of Nature Information</h3>
 
             <ol>
-                <li><a href="about-greenscape.html">About GreenScape</a></li>
+                <li><a href="about-greenscape.html">About Beauty of Nature</a></li>
                 <li><a href="photography-information.html">Photography Information</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -505,15 +508,15 @@ footer {
     </div>
 
     <div class="copyright">
-        © 2026 GreenScape — Created by Shahriar Ahsan Samy.
+        © 2026 Beauty of Nature — Created by Shahriar Ahsan Samy.
     </div>
 
 </footer>
 
-<!-- TWO FLOATING MESSAGE BUTTONS -->
+<!-- TWO FLOATING BUTTONS -->
 <div class="floating-buttons">
 
-    <!-- WHATSAPP BUTTON -->
+    <!-- WHATSAPP -->
     <a class="float-btn"
        href="https://wa.me/8801XXXXXXXXX"
        target="_blank"
@@ -525,10 +528,9 @@ footer {
             <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
             <path d="M11 11.5c.5-1 1.3-.8 1.7-.2l1.2 2c.3.5.1.9-.3 1.3l-.7.7c1 2 2.4 3.3 4.4 4.2l.8-.9c.4-.4.8-.5 1.3-.2l1.8 1c.6.4.8 1.1.3 1.7-.7 1-1.8 1.4-3 1.1-4.2-1-7.6-4.3-8.6-8.1-.3-1.1.1-2 .9-2.6Z"/>
         </svg>
-
     </a>
 
-    <!-- FACEBOOK MESSAGE BUTTON -->
+    <!-- FACEBOOK -->
     <a class="float-btn"
        href="YOUR_FACEBOOK_PROFILE_LINK"
        target="_blank"
@@ -540,7 +542,6 @@ footer {
             <path d="M26 15.5a11 11 0 0 1-16.5 9.5L5 26l1.3-4.3A11 11 0 1 1 26 15.5Z"/>
             <path d="M11 16h10M16 11v10M12.5 12.5l7 7M19.5 12.5l-7 7"/>
         </svg>
-
     </a>
 
 </div>
