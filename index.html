@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#183b28">
-<meta name="description" content="Beauty of Nature — Discover beautiful nature photography, landscapes, forests, rivers, wildlife and the natural world.">
-<title>Beauty of Nature | Discover the World</title>
+<meta name="theme-color" content="#173522">
+<meta name="description" content="Beauty of Nature — Explore beautiful nature photography from Bangladesh and around the world.">
+<title>Beauty of Nature | Discover the Natural World</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,1238 +13,877 @@
 
 <style>
 :root{
-  --green:#244b31;
-  --deep:#102519;
-  --accent:#c4dfaa;
-  --cream:#f6f7ef;
-  --white:#fff;
-  --muted:#727d73;
-  --font:"DM Sans",sans-serif;
-  --serif:"Playfair Display",serif;
+ --green:#244b31;
+ --deep:#102519;
+ --light:#d8e8c9;
+ --cream:#f5f7ef;
+ --muted:#778274;
+ --serif:"Playfair Display",serif;
+ --sans:"DM Sans",sans-serif;
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{
-  font-family:var(--font);
-  background:var(--cream);
-  color:#1b2c20;
-  overflow-x:hidden;
-}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--sans);background:var(--cream);color:#203327;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
-img{display:block;width:100%;object-fit:cover}
+button,input{font-family:inherit}
+img{width:100%;height:100%;object-fit:cover;display:block}
 .container{width:min(1200px,92%);margin:auto}
 
-/* ANNOUNCEMENT */
-.announcement{
-  background:#173522;
-  color:#dcebd6;
-  text-align:center;
-  padding:10px 15px;
-  font-size:11px;
-  letter-spacing:2px;
+/* TOP BAR */
+.topbar{
+ background:#173522;color:#dcebd6;text-align:center;
+ padding:9px;font-size:10px;letter-spacing:2px
 }
 
 /* NAVIGATION */
-.nav-wrap{
-  position:absolute;
-  top:40px;
-  left:0;
-  width:100%;
-  z-index:100;
-}
+.nav-wrap{position:absolute;top:35px;left:0;width:100%;z-index:100}
 .nav{
-  width:min(1360px,94%);
-  margin:auto;
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:15px 24px;
-  border:1px solid rgba(255,255,255,.17);
-  border-radius:18px;
-  background:rgba(19,38,26,.34);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  color:white;
+ width:min(1360px,94%);margin:auto;min-height:76px;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:16px;padding:13px 22px;color:white;
+ background:#10251970;border:1px solid #ffffff32;
+ border-radius:17px;backdrop-filter:blur(17px)
 }
-.logo{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  flex-shrink:0;
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{
+ width:39px;height:39px;border:1px solid #ffffff80;
+ border-radius:50%;display:grid;place-items:center;font-size:20px
 }
-.logo-mark{
-  width:40px;height:40px;
-  border:1px solid rgba(255,255,255,.5);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:20px;
-}
-.logo-text{
-  font-family:var(--serif);
-  font-size:20px;
-  letter-spacing:.2px;
-}
-.logo-text small{
-  display:block;
-  font-family:var(--font);
-  font-size:8px;
-  letter-spacing:3px;
-  margin-top:3px;
-  opacity:.7;
-}
-.nav-links{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:26px;
-}
-.nav-links>a,.drop-btn{
-  color:#fff;
-  font-size:12px;
-  font-weight:500;
-  white-space:nowrap;
-  opacity:.88;
-  transition:.25s;
-}
-.nav-links>a:hover,.drop-btn:hover{color:#c9e9a9;opacity:1}
+.logo-name{font:20px var(--serif)}
+.logo-name small{display:block;font:8px var(--sans);letter-spacing:3px;margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links>a,.drop-btn{font-size:11px;color:white;white-space:nowrap;opacity:.9}
+.nav-links>a:hover,.drop-btn:hover{color:#d8e8c9}
+.drop-btn{background:none;border:0;cursor:pointer}
 .dropdown{position:relative}
-.drop-btn{
-  background:none;border:0;display:flex;align-items:center;gap:6px;
-}
 .dropdown-menu{
-  position:absolute;
-  top:35px;left:-20px;
-  width:245px;
-  padding:12px;
-  background:#f8f8f1;
-  color:#243b2a;
-  border-radius:14px;
-  box-shadow:0 20px 50px #0003;
-  display:none;
+ display:none;position:absolute;top:30px;left:-15px;width:230px;
+ padding:10px;background:#f8f8f1;color:#203327;
+ border-radius:12px;box-shadow:0 15px 40px #0003
 }
 .dropdown.open .dropdown-menu{display:block}
-.dropdown-menu a{
-  display:block;
-  padding:11px 12px;
-  border-radius:8px;
-  font-size:12px;
-  transition:.2s;
+.dropdown-menu a{display:block;padding:10px;border-radius:7px;font-size:12px}
+.dropdown-menu a:hover{background:#e4ebdc}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.search-toggle,.menu-toggle{
+ width:38px;height:38px;border-radius:50%;
+ border:1px solid #ffffff80;color:white;background:transparent;
+ cursor:pointer;font-size:17px
 }
-.dropdown-menu a:hover{background:#e6eddf}
-.nav-actions{display:flex;align-items:center;gap:12px}
-.search-btn,.menu-btn{
-  width:38px;height:38px;
-  border:1px solid #ffffff55;
-  border-radius:50%;
-  background:transparent;
-  color:white;
-  display:grid;place-items:center;
-  font-size:16px;
+.login-btn{
+ background:#d8e8c9;color:#173522;padding:11px 15px;
+ border-radius:30px;font-size:10px;font-weight:700;white-space:nowrap
 }
-.account-btn{
-  border:1px solid #d6e8c9;
-  background:#d6e8c9;
-  color:#183522;
-  border-radius:30px;
-  padding:11px 17px;
-  font-size:11px;
-  font-weight:700;
-  white-space:nowrap;
-  transition:.25s;
-}
-.account-btn:hover{background:white}
-.menu-btn{display:none}
+.menu-toggle{display:none}
 
-/* SEARCH */
+/* SEARCH PANEL */
 .search-panel{
-  display:none;
-  position:absolute;
-  top:90px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(500px,92%);
-  padding:12px;
-  border-radius:15px;
-  background:#f8f8f1;
-  box-shadow:0 15px 50px #0003;
+ display:none;position:absolute;top:88px;left:50%;
+ transform:translateX(-50%);width:min(540px,94%);
+ padding:12px;background:#fff;border-radius:14px;
+ box-shadow:0 15px 40px #0003
 }
-.search-panel.show{display:flex}
+.search-panel.show{display:flex;gap:8px}
 .search-panel input{
-  flex:1;
-  border:none;
-  outline:none;
-  padding:12px;
-  background:transparent;
-  color:#1b3022;
-  font-size:14px;
+ flex:1;min-width:0;border:0;outline:0;
+ padding:12px;font-size:13px;color:#203327
+}
+.search-submit{
+ border:0;background:#244b31;color:white;
+ padding:0 18px;border-radius:9px;cursor:pointer
 }
 
 /* HERO */
 .hero{
-  position:relative;
-  min-height:760px;
-  height:100svh;
-  max-height:950px;
-  background-image:
-    linear-gradient(90deg,rgba(10,27,15,.72) 0%,rgba(10,27,15,.33) 53%,rgba(10,27,15,.06) 100%),
-    linear-gradient(0deg,rgba(8,24,13,.48),transparent 45%),
-    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=90");
-  background-position:center;
-  background-size:cover;
-  display:flex;
-  align-items:center;
-  color:white;
+ min-height:760px;height:100svh;max-height:950px;
+ display:flex;align-items:center;position:relative;color:white;
+ background:
+ linear-gradient(90deg,#102519c9 0%,#10251966 53%,#10251912 100%),
+ linear-gradient(0deg,#10251966,transparent 50%),
+ url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=90")
+ center/cover;
 }
-.hero-content{
-  width:min(1200px,90%);
-  margin:auto;
-  padding-top:100px;
-  position:relative;
-  z-index:2;
-}
-.hero-label{
-  display:flex;align-items:center;gap:12px;
-  font-size:10px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:#dce9cb;
-  margin-bottom:25px;
-}
-.hero-label:before{
-  content:"";width:35px;height:1px;background:#dce9cb;
-}
+.hero-content{width:min(1200px,90%);margin:auto;padding-top:90px}
+.hero-kicker{font-size:10px;letter-spacing:4px;color:#d7e9c8;margin-bottom:25px}
+.hero-kicker:before{content:"";display:inline-block;width:32px;height:1px;background:#d7e9c8;vertical-align:middle;margin-right:12px}
 .hero h1{
-  font-family:var(--serif);
-  font-size:clamp(54px,8.5vw,112px);
-  line-height:1.03;
-  font-weight:500;
-  letter-spacing:-2px;
-  max-width:850px;
+ font:500 clamp(55px,9vw,110px)/1.05 var(--serif);
+ letter-spacing:-2px;max-width:850px
 }
-.hero h1 em{font-style:italic;color:#d5e8bb}
-.hero-description{
-  margin-top:25px;
-  max-width:450px;
-  color:#e6e9df;
-  font-size:14px;
-  line-height:1.9;
+.hero h1 em{color:#d8e8c9}
+.hero p{max-width:450px;font-size:14px;line-height:1.9;color:#e4e9df;margin:24px 0 30px}
+.hero-buttons{display:flex;gap:13px;flex-wrap:wrap}
+.btn-primary,.btn-outline{
+ display:inline-flex;align-items:center;gap:12px;
+ padding:15px 22px;border-radius:30px;font-size:12px;font-weight:700
 }
-.hero-buttons{
-  display:flex;align-items:center;gap:15px;
-  margin-top:35px;flex-wrap:wrap;
-}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:12px;
-  background:#d7e8c6;color:#193622;
-  padding:15px 23px;border-radius:40px;
-  font-size:12px;font-weight:700;
-  transition:.25s;
-}
-.btn-primary:hover{background:white;transform:translateY(-2px)}
-.btn-outline{
-  display:inline-flex;align-items:center;gap:10px;
-  color:white;border:1px solid #ffffff70;
-  border-radius:40px;padding:14px 22px;
-  font-size:12px;transition:.25s;
-}
+.btn-primary{background:#d8e8c9;color:#173522}
+.btn-outline{border:1px solid #ffffff80;color:white}
+.btn-primary:hover{background:white}
 .btn-outline:hover{background:#ffffff20}
 .hero-bottom{
-  position:absolute;bottom:34px;left:0;width:100%;
-  padding:0 5%;
-  display:flex;justify-content:space-between;align-items:end;
-  color:#ffffffc9;
+ position:absolute;bottom:28px;left:0;width:100%;
+ padding:0 5%;display:flex;justify-content:space-between;
+ font-size:9px;letter-spacing:2px;color:#ffffffcf
 }
-.hero-note{font-size:10px;letter-spacing:2px}
-.hero-scroll{font-size:10px;letter-spacing:3px}
-.hero-scroll span{font-size:20px;margin-left:10px}
 
-/* SECTION COMMON */
-section{padding:100px 0}
-.section-top{
-  display:flex;align-items:end;justify-content:space-between;
-  gap:25px;margin-bottom:40px;
+/* GENERAL SECTION */
+section{padding:90px 0}
+.section-head{
+ display:flex;justify-content:space-between;align-items:end;
+ gap:25px;margin-bottom:35px
 }
-.eyebrow{
-  font-size:10px;
-  letter-spacing:3px;
-  color:#71836e;
-  text-transform:uppercase;
-  margin-bottom:14px;
-}
-.section-title{
-  font-family:var(--serif);
-  font-weight:500;
-  font-size:clamp(34px,4vw,55px);
-  line-height:1.12;
-  letter-spacing:-.6px;
-}
-.section-title em{font-style:italic;color:#65845c}
-.section-description{
-  max-width:390px;
-  font-size:13px;
-  line-height:1.8;
-  color:var(--muted);
-}
-.text-link{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:12px;font-weight:700;color:#34553b;
-  white-space:nowrap;
-}
-.text-link:hover{color:#71966c}
+.eyebrow{font-size:10px;letter-spacing:3px;color:#71836e;margin-bottom:13px}
+.section-title{font:500 clamp(34px,4.5vw,54px)/1.15 var(--serif)}
+.section-title em{color:#65845c}
+.section-desc{max-width:390px;font-size:12px;line-height:1.9;color:var(--muted)}
+.text-link{font-size:12px;font-weight:700;color:#34553b;white-space:nowrap}
 
-/* CATEGORY GRID */
-.categories-section{background:#f6f7ef}
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
-}
+/* CATEGORY */
+.categories{background:#f5f7ef}
+.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
 .category-card{
-  position:relative;
-  height:260px;
-  overflow:hidden;
-  border-radius:15px;
-  color:white;
-  background:#294832;
+ height:220px;position:relative;border-radius:13px;
+ overflow:hidden;color:white;cursor:pointer;background:#294832
 }
-.category-card img{
-  height:100%;
-  transition:transform .7s;
-}
-.category-card:hover img{transform:scale(1.07)}
+.category-card img{transition:.6s}
+.category-card:hover img{transform:scale(1.08)}
 .category-card:after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(0deg,#0a1e12d9 0%,transparent 72%);
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#0a1e12d9,transparent 75%)
 }
-.category-content{
-  position:absolute;bottom:20px;left:20px;right:18px;
-  z-index:2;
-}
-.category-number{
-  font-size:9px;letter-spacing:2px;color:#d3e4c3;
-  margin-bottom:7px;
-}
-.category-content h3{
-  font-family:var(--serif);
-  font-weight:500;font-size:22px;
-}
+.category-info{position:absolute;bottom:18px;left:16px;right:12px;z-index:2}
+.category-info small{font-size:8px;letter-spacing:2px;color:#d5e8c6}
+.category-info h3{font:500 19px var(--serif);margin-top:7px}
 .category-arrow{
-  position:absolute;right:18px;bottom:21px;
-  width:34px;height:34px;border-radius:50%;
-  border:1px solid #ffffff7c;
-  display:grid;place-items:center;
-  z-index:3;font-size:14px;
-  transition:.25s;
+ position:absolute;right:13px;top:13px;z-index:3;
+ width:30px;height:30px;border:1px solid #ffffff8a;
+ border-radius:50%;display:grid;place-items:center
 }
-.category-card:hover .category-arrow{
-  background:#d5e8c2;color:#1b3522;
+
+/* GALLERY */
+.gallery-section{background:white}
+.gallery-tools{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:15px;margin-bottom:25px;flex-wrap:wrap
+}
+.filter-list{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{
+ padding:9px 14px;border:1px solid #dce4d7;
+ background:white;color:#49604b;border-radius:25px;
+ font-size:10px;cursor:pointer
+}
+.filter-btn.active,.filter-btn:hover{background:#244b31;color:white;border-color:#244b31}
+.result-label{font-size:12px;color:#758174}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.gallery-card{
+ border-radius:12px;overflow:hidden;background:#f1f3ec;
+ cursor:pointer;transition:.25s
+}
+.gallery-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px #18352218}
+.gallery-image{height:210px;position:relative;overflow:hidden}
+.gallery-image img{transition:.5s}
+.gallery-card:hover .gallery-image img{transform:scale(1.05)}
+.gallery-image:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#10251940,transparent 55%)
+}
+.gallery-info{padding:14px}
+.gallery-info small{font-size:9px;color:#788675;letter-spacing:1px}
+.gallery-info h3{font:500 20px var(--serif);margin-top:5px}
+.no-results{
+ display:none;text-align:center;padding:55px 15px;
+ background:#f4f6ef;border-radius:14px;color:#526451
+}
+.no-results h3{font:25px var(--serif);margin-bottom:10px}
+.no-results p{font-size:12px}
+.load-more{
+ display:block;margin:32px auto 0;border:0;
+ background:#244b31;color:white;padding:13px 24px;
+ border-radius:30px;font-size:11px;cursor:pointer
 }
 
 /* FEATURED */
-.featured-section{background:#fff}
-.featured-grid{
-  display:grid;
-  grid-template-columns:1.25fr 1fr 1fr;
-  grid-template-rows:260px 260px;
-  gap:18px;
+.featured{background:#edf0e7}
+.featured-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:230px 230px;gap:15px}
+.featured-card{position:relative;border-radius:14px;overflow:hidden;color:white}
+.featured-card:first-child{grid-row:span 2}
+.featured-card img{transition:.6s}
+.featured-card:hover img{transform:scale(1.06)}
+.featured-card:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#102519b8,transparent 70%)
 }
-.photo-card{
-  position:relative;overflow:hidden;
-  border-radius:15px;background:#e0e7d9;
-}
-.photo-card:first-child{grid-row:span 2}
-.photo-card img{height:100%;transition:transform .7s}
-.photo-card:hover img{transform:scale(1.04)}
-.photo-card:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#0c2016b8,transparent 65%);
-}
-.photo-info{
-  position:absolute;bottom:22px;left:22px;right:22px;
-  z-index:2;color:white;
-}
-.photo-info small{
-  font-size:9px;letter-spacing:2px;
-  color:#d6e7c8;text-transform:uppercase;
-}
-.photo-info h3{
-  font-family:var(--serif);font-size:24px;
-  font-weight:500;margin-top:8px;
-}
-.photo-card:first-child .photo-info h3{font-size:34px}
+.featured-info{position:absolute;bottom:20px;left:20px;z-index:2}
+.featured-info small{font-size:9px;letter-spacing:2px;color:#d5e8c6}
+.featured-info h3{font:25px var(--serif);margin-top:7px}
 
 /* BANGLADESH */
-.bangladesh-section{
-  background:#1a3825;color:white;
+.bangladesh{background:#193b27;color:white}
+.bangladesh .eyebrow{color:#c0d7ad}
+.bangladesh .section-desc{color:#d0dbcb}
+.bd-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:17px;height:450px}
+.bd-main,.bd-small{position:relative;overflow:hidden;border-radius:14px}
+.bd-main img,.bd-small img{transition:.6s}
+.bd-main:hover img,.bd-small:hover img{transform:scale(1.05)}
+.bd-main:after,.bd-small:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#0b1d12c9,transparent 70%)
 }
-.bangladesh-section .eyebrow{color:#b4d0a5}
-.bangladesh-section .section-description{color:#cad7c5}
-.bangladesh-grid{
-  display:grid;grid-template-columns:1.15fr .85fr;
-  gap:20px;height:480px;
-}
-.bd-large,.bd-small{
-  position:relative;border-radius:17px;overflow:hidden;
-}
-.bd-large img,.bd-small img{height:100%;transition:.7s}
-.bd-large:hover img,.bd-small:hover img{transform:scale(1.04)}
-.bd-large:after,.bd-small:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#091b12c9,transparent 70%);
-}
-.bd-side{display:grid;grid-template-rows:1fr 1fr;gap:20px}
-.bd-label{
-  position:absolute;bottom:23px;left:24px;z-index:2;
-}
+.bd-side{display:grid;grid-template-rows:1fr 1fr;gap:17px}
+.bd-label{position:absolute;bottom:20px;left:20px;z-index:2}
 .bd-label small{font-size:9px;letter-spacing:2px;color:#d5e8c6}
-.bd-label h3{font-family:var(--serif);font-size:27px;font-weight:500;margin-top:8px}
-.bd-small .bd-label h3{font-size:22px}
+.bd-label h3{font:25px var(--serif);margin-top:7px}
 
 /* WORLD */
-.world-section{background:#edf0e7}
-.world-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-}
-.world-card{border-radius:16px;overflow:hidden;background:white}
-.world-image{height:280px;overflow:hidden}
-.world-image img{height:100%;transition:.6s}
+.world{background:#f5f7ef}
+.world-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.world-card{background:white;border-radius:14px;overflow:hidden}
+.world-card img{height:250px;transition:.5s}
 .world-card:hover img{transform:scale(1.04)}
-.world-info{padding:20px 21px 24px}
-.world-info small{font-size:9px;letter-spacing:2px;color:#80917a}
-.world-info h3{font-family:var(--serif);font-size:25px;font-weight:500;margin:8px 0}
-.world-info p{font-size:12px;line-height:1.8;color:var(--muted)}
+.world-card div{padding:18px}
+.world-card small{font-size:9px;letter-spacing:2px;color:#788675}
+.world-card h3{font:25px var(--serif);margin:8px 0}
+.world-card p{font-size:11px;line-height:1.8;color:var(--muted)}
 
-/* SEASON */
-.season-section{background:white}
-.season-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:17px;
-}
-.season-card{
-  height:280px;position:relative;overflow:hidden;border-radius:14px;color:white;
-}
-.season-card img{height:100%;transition:.6s}
-.season-card:hover img{transform:scale(1.05)}
-.season-card:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#0b1d12a8,transparent 80%);
-}
-.season-card h3{
-  position:absolute;bottom:22px;left:20px;z-index:2;
-  font-family:var(--serif);font-size:28px;font-weight:500;
-}
+/* SEASONS */
+.seasons{background:white}
+.season-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.season-card{height:250px;position:relative;overflow:hidden;border-radius:13px;color:white}
+.season-card img{transition:.5s}
+.season-card:hover img{transform:scale(1.06)}
+.season-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#1025199c,transparent)}
+.season-card h3{position:absolute;bottom:20px;left:18px;z-index:2;font:27px var(--serif)}
 
 /* MY PHOTOGRAPH */
-.personal-section{background:#e4ebdc}
+.personal{background:#e5eddf}
 .personal-banner{
-  min-height:450px;
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-  color:white;
-  display:flex;align-items:center;
-  background:
-    linear-gradient(90deg,#10291bd9,#10291b62,transparent),
-    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85") center/cover;
+ min-height:420px;border-radius:18px;overflow:hidden;
+ display:flex;align-items:center;color:white;
+ background:linear-gradient(90deg,#102519dd,#10251966,transparent),
+ url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85") center/cover
 }
-.personal-content{padding:60px;max-width:600px}
-.personal-content .eyebrow{color:#d3e5c4}
-.personal-content h2{
-  font-family:var(--serif);font-size:clamp(40px,5vw,65px);
-  font-weight:500;line-height:1.1;
-}
-.personal-content p{
-  font-size:13px;line-height:1.9;color:#e4eadf;
-  margin:20px 0 28px;max-width:390px;
-}
+.personal-content{padding:55px;max-width:620px}
+.personal-content .eyebrow{color:#d5e8c6}
+.personal-content h2{font:500 clamp(40px,5vw,62px)/1.15 var(--serif)}
+.personal-content p{font-size:12px;line-height:1.9;color:#e5ecdf;margin:18px 0 25px;max-width:390px}
 
 /* ABOUT */
-.about-section{background:#f6f7ef}
-.about-grid{
-  display:grid;grid-template-columns:.8fr 1.2fr;
-  gap:70px;align-items:center;
-}
-.about-image{
-  height:420px;border-radius:17px;overflow:hidden;
-}
-.about-image img{height:100%}
-.about-content h2{
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(36px,4vw,54px);line-height:1.16;
-}
-.about-content p{
-  color:#738073;font-size:13px;line-height:2;
-  max-width:560px;margin:22px 0;
-}
-.about-signature{
-  font-family:var(--serif);font-style:italic;
-  color:#456a47;font-size:22px;margin-top:25px;
-}
-
-/* CTA */
-.cta-section{
-  padding:80px 0;background:#dfe9d7;
-}
-.cta{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:30px;
-}
-.cta h2{
-  font-family:var(--serif);font-size:clamp(32px,4vw,49px);
-  font-weight:500;
-}
-.cta p{font-size:12px;color:#687b68;margin-top:12px}
+.about{background:#f5f7ef}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:center}
+.about-image{height:410px;border-radius:15px;overflow:hidden}
+.about-content h2{font:500 clamp(36px,4vw,52px)/1.2 var(--serif)}
+.about-content p{font-size:12px;line-height:2;color:var(--muted);margin:20px 0}
+.signature{font:italic 22px var(--serif);color:#456a47;margin-top:22px}
 
 /* FOOTER */
-footer{
-  background:#102619;color:#e5eddf;
-  padding:65px 0 25px;
+footer{background:#102619;color:#e5eddf;padding:60px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px;padding-bottom:40px}
+.footer-brand p{max-width:280px;font-size:11px;line-height:1.9;color:#b4c3b0;margin-top:18px}
+.footer-col h4{font-size:10px;letter-spacing:2px;margin-bottom:18px}
+.footer-col a{display:block;color:#b9c7b5;font-size:11px;margin:12px 0}
+.footer-col a:hover{color:#d8e8c9}
+.footer-bottom{border-top:1px solid #ffffff20;padding-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#aab9a5;font-size:10px}
+.social{display:flex;gap:15px}
+.float-contact{position:fixed;right:20px;bottom:20px;z-index:80}
+.float-contact a{
+ width:50px;height:50px;border-radius:50%;display:grid;
+ place-items:center;background:#d8e8c9;color:#173522;
+ font-size:20px;box-shadow:0 5px 20px #0002
 }
-.footer-grid{
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;
-  gap:45px;padding-bottom:50px;
-}
-.footer-brand p{
-  max-width:280px;font-size:12px;line-height:1.9;
-  color:#b4c3b0;margin-top:20px;
-}
-.footer-column h4{
-  font-size:11px;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:20px;
-}
-.footer-column a{
-  display:block;font-size:12px;color:#b9c7b5;
-  margin:13px 0;transition:.2s;
-}
-.footer-column a:hover{color:#d6e9bd}
-.footer-bottom{
-  border-top:1px solid #ffffff1c;
-  padding-top:22px;
-  display:flex;justify-content:space-between;
-  gap:15px;flex-wrap:wrap;
-  color:#9cac99;font-size:10px;
-}
-.social-links{display:flex;gap:18px}
-.social-links a{color:#d5e3ce}
-
-/* FLOATING CONTACT */
-.contact-float{
-  position:fixed;bottom:23px;right:23px;z-index:90;
-}
-.contact-float a{
-  display:grid;place-items:center;
-  width:53px;height:53px;border-radius:50%;
-  background:#d5e8c2;color:#183522;
-  font-size:19px;box-shadow:0 8px 25px #0002;
-  transition:.2s;
-}
-.contact-float a:hover{transform:translateY(-3px)}
-
-/* ANIMATION */
-.reveal{
-  opacity:0;transform:translateY(22px);
-  transition:opacity .7s ease,transform .7s ease;
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s}
+.reveal.visible{opacity:1;transform:none}
 
 /* RESPONSIVE */
 @media(max-width:1050px){
-  .nav-links{gap:15px}
-  .nav-links>a,.drop-btn{font-size:11px}
-  .category-grid{grid-template-columns:repeat(3,1fr)}
-  .featured-grid{grid-template-columns:1fr 1fr;grid-template-rows:300px 240px}
-  .photo-card:first-child{grid-row:span 2}
-  .world-grid{grid-template-columns:repeat(2,1fr)}
-  .season-grid{grid-template-columns:repeat(2,1fr)}
+ .nav-links{gap:12px}
+ .category-grid{grid-template-columns:repeat(3,1fr)}
+ .gallery-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:780px){
-  .announcement{font-size:9px;letter-spacing:1px}
-  .nav-wrap{top:34px}
-  .nav{min-height:66px;padding:12px 15px}
-  .logo-mark{width:35px;height:35px;font-size:17px}
-  .logo-text{font-size:17px}
-  .logo-text small{font-size:7px}
-  .nav-links{
-    display:none;
-    position:absolute;top:75px;left:0;width:100%;
-    padding:18px;background:#173522;
-    border-radius:15px;
-    flex-direction:column;align-items:stretch;gap:0;
-    box-shadow:0 15px 30px #0002;
-  }
-  .nav-links.active{display:flex}
-  .nav-links>a,.drop-btn{
-    padding:14px 10px;
-    border-bottom:1px solid #ffffff12;
-    font-size:13px;
-  }
-  .dropdown-menu{
-    position:static;width:100%;
-    box-shadow:none;background:#21432e;
-    color:white;margin-top:8px;
-  }
-  .dropdown-menu a{color:#e5efdf}
-  .dropdown-menu a:hover{background:#31543b}
-  .menu-btn{display:grid}
-  .search-btn{width:35px;height:35px}
-  .account-btn{padding:10px 13px;font-size:10px}
-  .nav-actions{gap:8px}
-  .hero{min-height:700px;height:92svh;background-position:58% center}
-  .hero-content{padding-top:70px}
-  .hero h1{font-size:clamp(50px,12vw,82px)}
-  .hero-description{font-size:13px;max-width:340px}
-  .hero-bottom{bottom:25px}
-  .hero-note{font-size:8px;letter-spacing:1px}
-  .hero-scroll{font-size:8px;letter-spacing:1px}
-  section{padding:75px 0}
-  .section-top{align-items:start;flex-direction:column;margin-bottom:30px}
-  .section-description{font-size:12px}
-  .category-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .category-card{height:220px;border-radius:12px}
-  .category-content{bottom:15px;left:15px}
-  .category-content h3{font-size:19px}
-  .category-arrow{width:30px;height:30px;right:13px;bottom:15px}
-  .featured-grid{
-    display:grid;grid-template-columns:1fr 1fr;
-    grid-template-rows:270px 190px 190px;gap:12px;
-  }
-  .photo-card:first-child{grid-column:span 2;grid-row:auto}
-  .photo-info{left:16px;bottom:16px}
-  .photo-info h3{font-size:21px}
-  .photo-card:first-child .photo-info h3{font-size:28px}
-  .bangladesh-grid{height:auto;grid-template-columns:1fr;gap:12px}
-  .bd-large{height:330px}
-  .bd-side{grid-template-columns:1fr 1fr;grid-template-rows:210px}
-  .bd-label{left:15px;bottom:15px}
-  .bd-label h3{font-size:23px}
-  .bd-small .bd-label h3{font-size:18px}
-  .world-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .world-image{height:190px}
-  .world-info{padding:15px}
-  .world-info h3{font-size:21px}
-  .world-info p{font-size:11px}
-  .season-card{height:210px}
-  .season-card h3{font-size:23px;bottom:16px;left:15px}
-  .personal-banner{min-height:420px;background-position:60% center}
-  .personal-content{padding:30px 24px}
-  .personal-content h2{font-size:45px}
-  .about-grid{grid-template-columns:1fr;gap:30px}
-  .about-image{height:330px}
-  .about-content h2{font-size:39px}
-  .cta{align-items:flex-start;flex-direction:column}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:35px}
-  .footer-brand{grid-column:span 2}
+ .nav-wrap{top:34px}
+ .nav{padding:11px 13px;min-height:65px}
+ .logo-icon{width:34px;height:34px}
+ .logo-name{font-size:16px}
+ .nav-links{
+  display:none;position:absolute;top:73px;left:0;width:100%;
+  background:#173522;padding:15px;border-radius:13px;
+  flex-direction:column;align-items:stretch;gap:0
+ }
+ .nav-links.active{display:flex}
+ .nav-links>a,.drop-btn{display:block;padding:13px 8px;border-bottom:1px solid #ffffff18;font-size:12px}
+ .dropdown-menu{position:static;width:100%;background:#244b31;color:white;box-shadow:none;margin:5px 0}
+ .dropdown-menu a{color:white}
+ .menu-toggle{display:block}
+ .login-btn{font-size:9px;padding:10px}
+ .hero{min-height:700px;height:90svh;background-position:58% center}
+ .hero h1{font-size:clamp(48px,11vw,78px)}
+ section{padding:70px 0}
+ .section-head{flex-direction:column;align-items:flex-start}
+ .category-grid{grid-template-columns:repeat(2,1fr);gap:11px}
+ .category-card{height:190px}
+ .category-info h3{font-size:17px}
+ .gallery-grid{grid-template-columns:repeat(2,1fr);gap:11px}
+ .gallery-image{height:175px}
+ .gallery-info{padding:11px}
+ .gallery-info h3{font-size:18px}
+ .featured-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 170px 170px}
+ .featured-card:first-child{grid-column:span 2;grid-row:auto}
+ .featured-info h3{font-size:20px}
+ .bd-grid{height:auto;grid-template-columns:1fr}
+ .bd-main{height:300px}
+ .bd-side{grid-template-columns:1fr 1fr;grid-template-rows:180px}
+ .bd-label h3{font-size:19px}
+ .world-grid{grid-template-columns:1fr 1fr}
+ .world-card img{height:180px}
+ .world-card div{padding:13px}
+ .world-card h3{font-size:20px}
+ .season-grid{grid-template-columns:1fr 1fr}
+ .season-card{height:190px}
+ .personal-banner{min-height:400px;background-position:60% center}
+ .personal-content{padding:28px}
+ .about-grid{grid-template-columns:1fr;gap:28px}
+ .about-image{height:320px}
+ .footer-grid{grid-template-columns:1fr 1fr}
+ .footer-brand{grid-column:span 2}
 }
 @media(max-width:430px){
-  .logo-text{font-size:15px}
-  .logo-mark{width:32px;height:32px}
-  .account-btn{padding:9px 11px}
-  .category-card{height:185px}
-  .category-content h3{font-size:17px}
-  .category-number{font-size:8px}
-  .world-image{height:155px}
-  .world-info h3{font-size:19px}
-  .season-card{height:175px}
-  .bd-large{height:270px}
-  .bd-side{grid-template-rows:170px}
-  .featured-grid{grid-template-rows:240px 165px 165px}
-  .photo-info h3{font-size:18px}
-  .footer-grid{gap:28px 18px}
-  .footer-column a{font-size:11px}
+ .logo-name{font-size:14px}
+ .logo-icon{width:31px;height:31px}
+ .search-toggle,.menu-toggle{width:34px;height:34px}
+ .login-btn{padding:9px}
+ .category-card{height:165px}
+ .category-info h3{font-size:15px}
+ .gallery-image{height:145px}
+ .gallery-info h3{font-size:16px}
+ .filter-btn{padding:8px 10px;font-size:9px}
+ .world-card img{height:145px}
+ .season-card{height:160px}
+ .bd-main{height:250px}
+ .bd-side{grid-template-rows:145px}
+ .footer-grid{gap:25px 15px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP STRIP -->
-<div class="announcement">
-  A JOURNEY THROUGH THE BEAUTY OF THE NATURAL WORLD
-</div>
+<div class="topbar">A JOURNEY THROUGH THE BEAUTY OF THE NATURAL WORLD</div>
 
-<!-- HEADER -->
+<!-- NAVIGATION -->
 <div class="nav-wrap">
-  <nav class="nav">
+<nav class="nav">
+ <a class="logo" href="index.html">
+  <span class="logo-icon">✿</span>
+  <span class="logo-name">Beauty of Nature<small>CAPTURE THE BEAUTY</small></span>
+ </a>
 
-    <a class="logo" href="index.html">
-      <span class="logo-mark">✿</span>
-      <span class="logo-text">
-        Beauty of Nature
-        <small>CAPTURE THE BEAUTY</small>
-      </span>
-    </a>
+ <div class="nav-links" id="navLinks">
+  <a href="#home">Home</a>
+  <div class="dropdown" id="dropdown">
+   <button class="drop-btn" id="dropBtn">Explore Gallery⌄</button>
+   <div class="dropdown-menu">
+    <a href="#gallery" data-filter="all">Explore All Photos</a>
+    <a href="#gallery" data-filter="forest">Forest & Jungle</a>
+    <a href="#gallery" data-filter="mountains">Mountains</a>
+    <a href="#gallery" data-filter="water">Rivers & Water</a>
+    <a href="#gallery" data-filter="sunset">Sunset & Sunrise</a>
+    <a href="#gallery" data-filter="flowers">Flowers</a>
+    <a href="#gallery" data-filter="wildlife">Wildlife & Birds</a>
+    <a href="#gallery" data-filter="village">Village & Countryside</a>
+    <a href="#gallery" data-filter="sky">Sky & Clouds</a>
+    <a href="#gallery" data-filter="rain">Rain & Mist</a>
+    <a href="#gallery" data-filter="night">Night & Stars</a>
+   </div>
+  </div>
+  <a href="#world">World Nature</a>
+  <a href="#myPhotography">My Photography</a>
+  <a href="#about">About Me</a>
+  <a href="#footer">Contact</a>
+ </div>
 
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
+ <div class="nav-actions">
+  <button class="search-toggle" id="searchToggle" aria-label="Search">⌕</button>
+  <a href="account.html" class="login-btn">Login / Account</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+ </div>
 
-      <div class="dropdown" id="exploreDropdown">
-        <button class="drop-btn" id="dropBtn">
-          Explore Gallery <span>⌄</span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="explore.html">✦ Explore All Photos</a>
-          <a href="explore.html?category=forest">Forest & Jungle</a>
-          <a href="explore.html?category=mountains">Mountains</a>
-          <a href="explore.html?category=water">Rivers & Water</a>
-          <a href="explore.html?category=sunset">Sunset & Sunrise</a>
-          <a href="explore.html?category=flowers">Flowers</a>
-          <a href="explore.html?category=wildlife">Wildlife & Birds</a>
-          <a href="explore.html?category=village">Village & Countryside</a>
-          <a href="explore.html?category=sky">Sky & Clouds</a>
-          <a href="explore.html?category=rain">Rain & Mist</a>
-          <a href="explore.html?category=night">Night & Stars</a>
-        </div>
-      </div>
-
-      <a href="world-nature.html">World Nature</a>
-      <a href="my-photography.html">My Photography</a>
-      <a href="about.html">About Me</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="nav-actions">
-      <button class="search-btn" id="searchToggle" aria-label="Search">⌕</button>
-      <a href="account.html" class="account-btn">Login / Account</a>
-      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
-    </div>
-
-    <div class="search-panel" id="searchPanel">
-      <input type="search" id="siteSearch" placeholder="Search nature, forests, rivers..." autocomplete="off">
-    </div>
-
-  </nav>
+ <form class="search-panel" id="searchForm">
+  <input id="searchInput" type="search" placeholder="Search Mountain View, Bangladesh Nature..." autocomplete="off">
+  <button class="search-submit" type="submit">Search</button>
+ </form>
+</nav>
 </div>
 
 <!-- HERO -->
 <header class="hero" id="home">
-  <div class="hero-content reveal">
-    <div class="hero-label">WELCOME TO A WORLD OF NATURE</div>
-
-    <h1>Discover the<br><em>Beauty of Nature.</em></h1>
-
-    <p class="hero-description">
-      From peaceful green landscapes to breathtaking sunsets,
-      explore the beauty of our world through the art of photography.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#categories" class="btn-primary">Explore Nature <span>↗</span></a>
-      <a href="about.html" class="btn-outline">Our Story <span>→</span></a>
-    </div>
+ <div class="hero-content reveal">
+  <div class="hero-kicker">WELCOME TO A WORLD OF NATURE</div>
+  <h1>Discover the<br><em>Beauty of Nature.</em></h1>
+  <p>From peaceful green landscapes to breathtaking sunsets, explore the beauty of our world through the art of photography.</p>
+  <div class="hero-buttons">
+   <a href="#categories" class="btn-primary">Explore Nature ↗</a>
+   <a href="#about" class="btn-outline">Our Story →</a>
   </div>
-
-  <div class="hero-bottom">
-    <div class="hero-note">NATURE · LANDSCAPE · PHOTOGRAPHY</div>
-    <a href="#categories" class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></a>
-  </div>
+ </div>
+ <div class="hero-bottom">
+  <span>NATURE · LANDSCAPE · PHOTOGRAPHY</span>
+  <a href="#categories">SCROLL TO EXPLORE ↓</a>
+ </div>
 </header>
 
 <!-- CATEGORIES -->
-<section class="categories-section" id="categories">
-  <div class="container">
-
-    <div class="section-top reveal">
-      <div>
-        <div class="eyebrow">EXPLORE THE WORLD</div>
-        <h2 class="section-title">Find your <em>inspiration.</em></h2>
-      </div>
-      <p class="section-description">
-        Explore different worlds of nature. Every landscape, every color,
-        and every little detail has a story waiting to be discovered.
-      </p>
-    </div>
-
-    <div class="category-grid">
-
-      <a href="explore.html?category=forest" class="category-card reveal" data-search="forest jungle woods">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=85" alt="Forest">
-        <div class="category-content">
-          <div class="category-number">01 / COLLECTION</div>
-          <h3>Forest & Jungle</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=mountains" class="category-card reveal" data-search="mountains peaks hills">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=85" alt="Mountains">
-        <div class="category-content">
-          <div class="category-number">02 / COLLECTION</div>
-          <h3>Mountains</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=water" class="category-card reveal" data-search="river water lake waterfall sea">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=700&q=85" alt="River">
-        <div class="category-content">
-          <div class="category-number">03 / COLLECTION</div>
-          <h3>Rivers & Water</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=sunset" class="category-card reveal" data-search="sunset sunrise dawn golden hour">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1472120435266-3c4a6d7d5c4f?auto=format&fit=crop&w=700&q=85" alt="Sunset">
-        <div class="category-content">
-          <div class="category-number">04 / COLLECTION</div>
-          <h3>Sunset & Sunrise</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=flowers" class="category-card reveal" data-search="flowers blossom petals garden">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85" alt="Flowers">
-        <div class="category-content">
-          <div class="category-number">05 / COLLECTION</div>
-          <h3>Flowers</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=wildlife" class="category-card reveal" data-search="wildlife birds animals butterfly">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1474511320723-9a568738a5b4?auto=format&fit=crop&w=700&q=85" alt="Wildlife">
-        <div class="category-content">
-          <div class="category-number">06 / COLLECTION</div>
-          <h3>Wildlife & Birds</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=village" class="category-card reveal" data-search="village countryside rural bangladesh rice fields">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85" alt="Countryside">
-        <div class="category-content">
-          <div class="category-number">07 / COLLECTION</div>
-          <h3>Village & Countryside</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=sky" class="category-card reveal" data-search="sky clouds blue sky">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=700&q=85" alt="Sky">
-        <div class="category-content">
-          <div class="category-number">08 / COLLECTION</div>
-          <h3>Sky & Clouds</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=rain" class="category-card reveal" data-search="rain mist fog dew">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=85" alt="Rain and mist">
-        <div class="category-content">
-          <div class="category-number">09 / COLLECTION</div>
-          <h3>Rain & Mist</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-      <a href="explore.html?category=night" class="category-card reveal" data-search="night stars moon galaxy">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1475274047050-1d0c0975c4b5?auto=format&fit=crop&w=700&q=85" alt="Night sky">
-        <div class="category-content">
-          <div class="category-number">10 / COLLECTION</div>
-          <h3>Night & Stars</h3>
-        </div>
-        <div class="category-arrow">↗</div>
-      </a>
-
-    </div>
+<section class="categories" id="categories">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">EXPLORE THE WORLD</div><h2 class="section-title">Find your <em>inspiration.</em></h2></div>
+   <p class="section-desc">Explore ten different worlds of nature. Choose a category to discover photographs and beautiful places.</p>
   </div>
+
+  <div class="category-grid">
+
+   <a href="#gallery" class="category-card reveal" data-category="forest">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=650&q=85" alt="Forest">
+    <div class="category-info"><small>01 / COLLECTION</small><h3>Forest & Jungle</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="mountains">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=650&q=85" alt="Mountains">
+    <div class="category-info"><small>02 / COLLECTION</small><h3>Mountains</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="water">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=650&q=85" alt="Water">
+    <div class="category-info"><small>03 / COLLECTION</small><h3>Rivers & Water</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="sunset">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=650&q=85" alt="Sunset">
+    <div class="category-info"><small>04 / COLLECTION</small><h3>Sunset & Sunrise</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="flowers">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=650&q=85" alt="Flowers">
+    <div class="category-info"><small>05 / COLLECTION</small><h3>Flowers</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="wildlife">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1474511320723-9a568738a5b4?auto=format&fit=crop&w=650&q=85" alt="Wildlife">
+    <div class="category-info"><small>06 / COLLECTION</small><h3>Wildlife & Birds</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="village">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=650&q=85" alt="Countryside">
+    <div class="category-info"><small>07 / COLLECTION</small><h3>Village & Countryside</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="sky">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=650&q=85" alt="Sky">
+    <div class="category-info"><small>08 / COLLECTION</small><h3>Sky & Clouds</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="rain">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=650&q=85" alt="Rain and mist">
+    <div class="category-info"><small>09 / COLLECTION</small><h3>Rain & Mist</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+   <a href="#gallery" class="category-card reveal" data-category="night">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1475274047050-1d0c0975c4b5?auto=format&fit=crop&w=650&q=85" alt="Night sky">
+    <div class="category-info"><small>10 / COLLECTION</small><h3>Night & Stars</h3></div><span class="category-arrow">↗</span>
+   </a>
+
+  </div>
+ </div>
 </section>
 
-<!-- FEATURED PHOTOGRAPHY -->
-<section class="featured-section" id="featured">
-  <div class="container">
-
-    <div class="section-top reveal">
-      <div>
-        <div class="eyebrow">HANDPICKED COLLECTION</div>
-        <h2 class="section-title">Featured <em>photography.</em></h2>
-      </div>
-      <a href="explore.html" class="text-link">View All Photos ↗</a>
-    </div>
-
-    <div class="featured-grid">
-
-      <a href="photo.html" class="photo-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1100&q=85" alt="Beautiful forest landscape">
-        <div class="photo-info">
-          <small>EDITOR'S PICK</small>
-          <h3>Into the Wild</h3>
-        </div>
-      </a>
-
-      <a href="photo.html" class="photo-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85" alt="Golden sunset">
-        <div class="photo-info">
-          <small>GOLDEN HOUR</small>
-          <h3>Golden Horizons</h3>
-        </div>
-      </a>
-
-      <a href="photo.html" class="photo-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1439853949127-fa647821eba5?auto=format&fit=crop&w=800&q=85" alt="Water landscape">
-        <div class="photo-info">
-          <small>WATER & LIGHT</small>
-          <h3>Nature's Reflection</h3>
-        </div>
-      </a>
-
-      <a href="photo.html" class="photo-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=85" alt="Woodland">
-        <div class="photo-info">
-          <small>FOREST COLLECTION</small>
-          <h3>Green Serenity</h3>
-        </div>
-      </a>
-
-      <a href="photo.html" class="photo-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=85" alt="Mountain nature">
-        <div class="photo-info">
-          <small>LANDSCAPE</small>
-          <h3>Beyond the Hills</h3>
-        </div>
-      </a>
-
-    </div>
+<!-- MAIN GALLERY AND SEARCH RESULTS -->
+<section class="gallery-section" id="gallery">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">DISCOVER BEAUTIFUL MOMENTS</div><h2 class="section-title">Nature <em>Gallery.</em></h2></div>
+   <p class="section-desc">Browse the collection or search for a place, category or type of nature photography.</p>
   </div>
+
+  <div class="gallery-tools">
+   <div class="filter-list" id="filterList">
+    <button class="filter-btn active" data-filter="all">All Photos</button>
+    <button class="filter-btn" data-filter="forest">Forest</button>
+    <button class="filter-btn" data-filter="mountains">Mountains</button>
+    <button class="filter-btn" data-filter="water">Water</button>
+    <button class="filter-btn" data-filter="sunset">Sunset</button>
+    <button class="filter-btn" data-filter="village">Bangladesh</button>
+   </div>
+   <div class="result-label" id="resultLabel">Showing all photos</div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+   <article class="gallery-card" data-category="forest" data-tags="forest jungle green trees woodland nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=85" alt="Green forest"></div>
+    <div class="gallery-info"><small>FOREST & JUNGLE</small><h3>Deep Green Forest</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="mountains" data-tags="mountain mountains mountain view hill peak landscape">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=85" alt="Mountain view"></div>
+    <div class="gallery-info"><small>MOUNTAINS</small><h3>Mountain View</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="water" data-tags="river water waterfall lake sea ocean nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=700&q=85" alt="Waterfall"></div>
+    <div class="gallery-info"><small>RIVERS & WATER</small><h3>Peaceful Waters</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="sunset" data-tags="sunset sunrise golden hour evening sky">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85" alt="Sunset landscape"></div>
+    <div class="gallery-info"><small>SUNSET & SUNRISE</small><h3>Golden Sunset</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="flowers" data-tags="flower flowers blossom garden petals">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85" alt="Flowers"></div>
+    <div class="gallery-info"><small>FLOWERS</small><h3>Spring Blossoms</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="wildlife" data-tags="wildlife bird animal fox nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1474511320723-9a568738a5b4?auto=format&fit=crop&w=700&q=85" alt="Wild animal"></div>
+    <div class="gallery-info"><small>WILDLIFE</small><h3>Wild Nature</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="village" data-tags="bangladesh bangladesh nature village countryside rice field green field rural">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85" alt="Green countryside"></div>
+    <div class="gallery-info"><small>BANGLADESH NATURE</small><h3>Green Countryside</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="sky" data-tags="sky clouds blue sky cloud">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=700&q=85" alt="Blue sky"></div>
+    <div class="gallery-info"><small>SKY & CLOUDS</small><h3>Open Blue Sky</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="rain" data-tags="rain mist fog forest rainy weather">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=85" alt="Misty forest"></div>
+    <div class="gallery-info"><small>RAIN & MIST</small><h3>Misty Nature</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="night" data-tags="night stars moon galaxy milky way">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1475274047050-1d0c0975c4b5?auto=format&fit=crop&w=700&q=85" alt="Night sky stars"></div>
+    <div class="gallery-info"><small>NIGHT & STARS</small><h3>Under the Stars</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="mountains" data-tags="mountain view hills landscape nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=85" alt="Mountain lake"></div>
+    <div class="gallery-info"><small>MOUNTAINS</small><h3>Mountain Lake</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="forest" data-tags="forest trees woods green nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=85" alt="Woodland"></div>
+    <div class="gallery-info"><small>FOREST & JUNGLE</small><h3>Woodland Escape</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="water" data-tags="water river lake reflection nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1439853949127-fa647821eba5?auto=format&fit=crop&w=700&q=85" alt="Water reflection"></div>
+    <div class="gallery-info"><small>RIVERS & WATER</small><h3>Nature Reflection</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="sunset" data-tags="sunset sky evening orange golden">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1472120435266-3c4a6d7d5c4f?auto=format&fit=crop&w=700&q=85" alt="Evening sky"></div>
+    <div class="gallery-info"><small>SUNSET & SUNRISE</small><h3>Evening Glow</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="village" data-tags="bangladesh nature countryside rural green field landscape">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=700&q=85" alt="Nature landscape"></div>
+    <div class="gallery-info"><small>BANGLADESH NATURE</small><h3>Nature's Beauty</h3></div>
+   </article>
+
+   <article class="gallery-card" data-category="flowers" data-tags="flowers garden blossom nature">
+    <div class="gallery-image"><img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&fit=crop&w=700&q=85" alt="Flower garden"></div>
+    <div class="gallery-info"><small>FLOWERS</small><h3>Flower Garden</h3></div>
+   </article>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+   <h3>No photos found</h3>
+   <p>Try another word, such as Mountain, Forest, River or Bangladesh Nature.</p>
+  </div>
+
+  <button class="load-more" id="resetGallery">Show All Photos</button>
+ </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">HANDPICKED COLLECTION</div><h2 class="section-title">Featured <em>Photography.</em></h2></div>
+   <a href="#gallery" class="text-link">Explore Gallery ↗</a>
+  </div>
+  <div class="featured-grid">
+   <a href="#gallery" class="featured-card"><img loading="lazy" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85" alt="Landscape"><div class="featured-info"><small>EDITOR'S PICK</small><h3>Into the Wild</h3></div></a>
+   <a href="#gallery" class="featured-card"><img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85" alt="Sunset"><div class="featured-info"><small>GOLDEN HOUR</small><h3>Golden Horizons</h3></div></a>
+   <a href="#gallery" class="featured-card"><img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=700&q=85" alt="Water"><div class="featured-info"><small>WATER & LIGHT</small><h3>Reflections</h3></div></a>
+   <a href="#gallery" class="featured-card"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=85" alt="Forest"><div class="featured-info"><small>FOREST</small><h3>Green Serenity</h3></div></a>
+   <a href="#gallery" class="featured-card"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=85" alt="Mountains"><div class="featured-info"><small>LANDSCAPE</small><h3>Beyond the Hills</h3></div></a>
+  </div>
+ </div>
 </section>
 
 <!-- BANGLADESH -->
-<section class="bangladesh-section" id="bangladesh">
-  <div class="container">
-
-    <div class="section-top reveal">
-      <div>
-        <div class="eyebrow">MADE OF GREEN & GOLD</div>
-        <h2 class="section-title">Beautiful <em>Bangladesh.</em></h2>
-      </div>
-      <p class="section-description">
-        A land of rivers, endless green fields, peaceful villages
-        and beautiful sunsets. Discover nature from our own home.
-      </p>
-    </div>
-
-    <div class="bangladesh-grid">
-      <a href="world-nature.html" class="bd-large reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85" alt="Green fields">
-        <div class="bd-label">
-          <small>BANGLADESH · LANDSCAPE</small>
-          <h3>Where Green Meets the Sky</h3>
-        </div>
-      </a>
-
-      <div class="bd-side">
-        <a href="world-nature.html" class="bd-small reveal">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85" alt="Golden countryside">
-          <div class="bd-label">
-            <small>GOLDEN HOUR</small>
-            <h3>Sunset in the Fields</h3>
-          </div>
-        </a>
-
-        <a href="world-nature.html" class="bd-small reveal">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=800&q=85" alt="River landscape">
-          <div class="bd-label">
-            <small>RIVER & LIFE</small>
-            <h3>Along the River</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-
+<section class="bangladesh">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">MADE OF GREEN & GOLD</div><h2 class="section-title">Beautiful <em>Bangladesh.</em></h2></div>
+   <p class="section-desc">A land of rivers, endless green fields, peaceful villages and beautiful sunsets.</p>
   </div>
+  <div class="bd-grid">
+   <a href="#gallery" class="bd-main" data-category="village"><img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85" alt="Green fields"><div class="bd-label"><small>BANGLADESH · LANDSCAPE</small><h3>Where Green Meets the Sky</h3></div></a>
+   <div class="bd-side">
+    <a href="#gallery" class="bd-small" data-category="sunset"><img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85" alt="Golden sunset"><div class="bd-label"><small>GOLDEN HOUR</small><h3>Sunset in the Fields</h3></div></a>
+    <a href="#gallery" class="bd-small" data-category="water"><img loading="lazy" src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=800&q=85" alt="River"><div class="bd-label"><small>RIVER & LIFE</small><h3>Along the River</h3></div></a>
+   </div>
+  </div>
+ </div>
 </section>
 
 <!-- WORLD NATURE -->
-<section class="world-section" id="world">
-  <div class="container">
-
-    <div class="section-top reveal">
-      <div>
-        <div class="eyebrow">OUR PLANET IS BEAUTIFUL</div>
-        <h2 class="section-title">Nature without <em>borders.</em></h2>
-      </div>
-      <a href="world-nature.html" class="text-link">Discover World Nature ↗</a>
-    </div>
-
-    <div class="world-grid">
-
-      <a href="world-nature.html" class="world-card reveal">
-        <div class="world-image">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Mountain landscapes">
-        </div>
-        <div class="world-info">
-          <small>HIGH ALTITUDE</small>
-          <h3>Mountain Worlds</h3>
-          <p>Explore the majesty of mountains and breathtaking horizons.</p>
-        </div>
-      </a>
-
-      <a href="world-nature.html" class="world-card reveal">
-        <div class="world-image">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85" alt="Forest">
-        </div>
-        <div class="world-info">
-          <small>WILD & UNTAMED</small>
-          <h3>Ancient Forests</h3>
-          <p>Step into peaceful forests filled with light, life and green.</p>
-        </div>
-      </a>
-
-      <a href="world-nature.html" class="world-card reveal">
-        <div class="world-image">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Natural landscape">
-        </div>
-        <div class="world-info">
-          <small>EARTH'S WONDERS</small>
-          <h3>Open Landscapes</h3>
-          <p>See the world's most peaceful places through nature photography.</p>
-        </div>
-      </a>
-
-    </div>
+<section class="world" id="world">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">OUR PLANET IS BEAUTIFUL</div><h2 class="section-title">Nature without <em>borders.</em></h2></div>
+   <a href="#gallery" class="text-link">Discover Nature ↗</a>
   </div>
+  <div class="world-grid">
+   <article class="world-card"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=850&q=85" alt="Mountains"><div><small>HIGH ALTITUDE</small><h3>Mountain Worlds</h3><p>Discover breathtaking mountain landscapes.</p></div></article>
+   <article class="world-card"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=850&q=85" alt="Forest"><div><small>WILD & UNTAMED</small><h3>Ancient Forests</h3><p>Explore peaceful forests filled with life.</p></div></article>
+   <article class="world-card"><img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=850&q=85" alt="Landscape"><div><small>EARTH'S WONDERS</small><h3>Open Landscapes</h3><p>See the natural beauty of our planet.</p></div></article>
+  </div>
+ </div>
 </section>
 
 <!-- SEASONS -->
-<section class="season-section" id="seasons">
-  <div class="container">
-
-    <div class="section-top reveal">
-      <div>
-        <div class="eyebrow">FOUR SEASONS · COUNTLESS COLORS</div>
-        <h2 class="section-title">Nature through the <em>seasons.</em></h2>
-      </div>
-    </div>
-
-    <div class="season-grid">
-
-      <a href="explore.html?category=spring" class="season-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85" alt="Spring flowers">
-        <h3>Spring</h3>
-      </a>
-
-      <a href="explore.html?category=summer" class="season-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85" alt="Summer nature">
-        <h3>Summer</h3>
-      </a>
-
-      <a href="explore.html?category=rain" class="season-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=85" alt="Rainy nature">
-        <h3>Monsoon</h3>
-      </a>
-
-      <a href="explore.html?category=winter" class="season-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1457269449834-928af64c684d?auto=format&fit=crop&w=700&q=85" alt="Winter nature">
-        <h3>Winter</h3>
-      </a>
-
-    </div>
+<section class="seasons">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">FOUR SEASONS · COUNTLESS COLORS</div><h2 class="section-title">Nature through the <em>seasons.</em></h2></div></div>
+  <div class="season-grid">
+   <a href="#gallery" class="season-card"><img loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85" alt="Spring"><h3>Spring</h3></a>
+   <a href="#gallery" class="season-card"><img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85" alt="Summer"><h3>Summer</h3></a>
+   <a href="#gallery" class="season-card"><img loading="lazy" src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=85" alt="Monsoon"><h3>Monsoon</h3></a>
+   <a href="#gallery" class="season-card"><img loading="lazy" src="https://images.unsplash.com/photo-1457269449834-928af64c684d?auto=format&fit=crop&w=700&q=85" alt="Winter"><h3>Winter</h3></a>
   </div>
+ </div>
 </section>
 
 <!-- MY PHOTOGRAPHY -->
-<section class="personal-section" id="my-photography">
-  <div class="container">
-    <div class="personal-banner reveal">
-      <div class="personal-content">
-        <div class="eyebrow">THROUGH MY OWN LENS</div>
-        <h2>My Photography.<br><em>My Perspective.</em></h2>
-        <p>
-          Every photograph has a moment, a memory and a story.
-          Explore the world as I see it through my own camera.
-        </p>
-        <a href="my-photography.html" class="btn-primary">View My Collection ↗</a>
-      </div>
-    </div>
+<section class="personal" id="myPhotography">
+ <div class="container">
+  <div class="personal-banner reveal">
+   <div class="personal-content">
+    <div class="eyebrow">THROUGH MY OWN LENS</div>
+    <h2>My Photography.<br><em>My Perspective.</em></h2>
+    <p>Every photograph has a moment, a memory and a story. Explore nature through my own camera.</p>
+    <a href="#gallery" class="btn-primary">View Photography ↗</a>
+   </div>
   </div>
+ </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="container">
-    <div class="about-grid reveal">
-
-      <div class="about-image">
-        <img loading="lazy" src="images/IMG-20260921-WA0066.jpg" alt="Beauty of Nature creator">
-      </div>
-
-      <div class="about-content">
-        <div class="eyebrow">THE PERSON BEHIND THE LENS</div>
-        <h2>A little love for nature.<br><em>A whole world to discover.</em></h2>
-        <p>
-          Assalamu Alaikum! I'm Shahriar Ahsan Samy, the creator of Beauty of Nature.
-          I created this platform to share the beauty of nature, amazing landscapes
-          and peaceful moments with everyone. Nature has a story in every leaf,
-          every river and every sunset. I hope this website inspires you to
-          appreciate our beautiful world.
-        </p>
-        <a href="about.html" class="text-link">More About Me ↗</a>
-        <div class="about-signature">Shahriar Ahsan Samy</div>
-      </div>
-
-    </div>
+<section class="about" id="about">
+ <div class="container">
+  <div class="about-grid reveal">
+   <div class="about-image"><img loading="lazy" src="images/IMG-20260921-WA0066.jpg" alt="Shahriar Ahsan Samy"></div>
+   <div class="about-content">
+    <div class="eyebrow">THE PERSON BEHIND THE LENS</div>
+    <h2>A little love for nature.<br><em>A whole world to discover.</em></h2>
+    <p>Assalamu Alaikum! I'm Shahriar Ahsan Samy, the creator of Beauty of Nature. I created this platform to share the beauty of nature, amazing landscapes and peaceful moments with everyone. Nature has a story in every leaf, every river and every sunset.</p>
+    <a href="#footer" class="text-link">Get in Touch ↗</a>
+    <div class="signature">Shahriar Ahsan Samy</div>
+   </div>
   </div>
-</section>
-
-<!-- CALL TO ACTION -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta reveal">
-      <div>
-        <h2>Take a moment.<br>Discover the beauty around you.</h2>
-        <p>Every journey into nature begins with a single step.</p>
-      </div>
-      <a href="explore.html" class="btn-primary">Start Exploring ↗</a>
-    </div>
-  </div>
+ </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-        <a class="logo" href="index.html">
-          <span class="logo-mark">✿</span>
-          <span class="logo-text">
-            Beauty of Nature
-            <small>CAPTURE THE BEAUTY</small>
-          </span>
-        </a>
-        <p>
-          A little corner of the internet dedicated to the beauty of our natural world.
-          Discover, explore and appreciate nature.
-        </p>
-      </div>
-
-      <div class="footer-column">
-        <h4>Explore</h4>
-        <a href="index.html">Home</a>
-        <a href="explore.html">Explore Gallery</a>
-        <a href="world-nature.html">World Nature</a>
-        <a href="my-photography.html">My Photography</a>
-      </div>
-
-      <div class="footer-column">
-        <h4>About</h4>
-        <a href="about.html">About Me</a>
-        <a href="photography-info.html">Photography Info</a>
-        <a href="faq.html">FAQs</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-column">
-        <h4>Information</h4>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="account.html">My Account</a>
-        <a href="favorites.html">My Favorites</a>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <div>© 2026 Beauty of Nature — Created by Shahriar Ahsan Samy.</div>
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
-        <a href="#" aria-label="TikTok">TikTok</a>
-      </div>
-    </div>
-
+<footer id="footer">
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-brand">
+    <a class="logo" href="#home"><span class="logo-icon">✿</span><span class="logo-name">Beauty of Nature<small>CAPTURE THE BEAUTY</small></span></a>
+    <p>A little corner of the internet dedicated to the beauty of our natural world. Discover, explore and appreciate nature.</p>
+   </div>
+   <div class="footer-col"><h4>EXPLORE</h4><a href="#home">Home</a><a href="#categories">Categories</a><a href="#gallery">Gallery</a><a href="#world">World Nature</a></div>
+   <div class="footer-col"><h4>ABOUT</h4><a href="#about">About Me</a><a href="#myPhotography">My Photography</a><a href="#footer">Contact</a></div>
+   <div class="footer-col"><h4>INFORMATION</h4><a href="faq.html">FAQs</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="account.html">My Account</a></div>
   </div>
+  <div class="footer-bottom">
+   <span>© 2026 Beauty of Nature — Created by Shahriar Ahsan Samy.</span>
+   <div class="social"><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">TikTok</a></div>
+  </div>
+ </div>
 </footer>
 
-<!-- FLOATING CONTACT -->
-<div class="contact-float">
-  <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp Contact">✆</a>
-</div>
+<div class="float-contact"><a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a></div>
 
 <script>
-// MOBILE MENU
+// MOBILE NAVIGATION
 const menuToggle=document.getElementById("menuToggle");
 const navLinks=document.getElementById("navLinks");
 
 menuToggle.addEventListener("click",()=>{
-  navLinks.classList.toggle("active");
-  menuToggle.textContent=navLinks.classList.contains("active")?"✕":"☰";
+ navLinks.classList.toggle("active");
+ menuToggle.textContent=navLinks.classList.contains("active")?"✕":"☰";
 });
 
-// CLOSE MOBILE MENU WHEN A LINK IS CLICKED
-navLinks.querySelectorAll("a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    navLinks.classList.remove("active");
-    menuToggle.textContent="☰";
-  });
+// DROPDOWN
+const dropdown=document.getElementById("dropdown");
+document.getElementById("dropBtn").addEventListener("click",()=>{
+ dropdown.classList.toggle("open");
 });
 
-// EXPLORE DROPDOWN
-const dropdown=document.getElementById("exploreDropdown");
-const dropBtn=document.getElementById("dropBtn");
-
-dropBtn.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  dropdown.classList.toggle("open");
-});
-
-document.addEventListener("click",(e)=>{
-  if(!dropdown.contains(e.target)){
-    dropdown.classList.remove("open");
-  }
-});
-
-// SEARCH TOGGLE
+// SEARCH PANEL
 const searchToggle=document.getElementById("searchToggle");
-const searchPanel=document.getElementById("searchPanel");
-const siteSearch=document.getElementById("siteSearch");
+const searchForm=document.getElementById("searchForm");
+const searchInput=document.getElementById("searchInput");
 
 searchToggle.addEventListener("click",()=>{
-  searchPanel.classList.toggle("show");
-  if(searchPanel.classList.contains("show")){
-    siteSearch.focus();
-  }
+ searchForm.classList.toggle("show");
+ if(searchForm.classList.contains("show")) searchInput.focus();
 });
 
-// SEARCH CATEGORY CARDS
-siteSearch.addEventListener("input",()=>{
-  const query=siteSearch.value.trim().toLowerCase();
-  const cards=document.querySelectorAll(".category-card");
+// CATEGORY AND SEARCH FILTER
+const galleryCards=[...document.querySelectorAll(".gallery-card")];
+const filterButtons=[...document.querySelectorAll(".filter-btn")];
+const resultLabel=document.getElementById("resultLabel");
+const noResults=document.getElementById("noResults");
 
-  cards.forEach(card=>{
-    const text=(card.innerText+" "+card.dataset.search).toLowerCase();
-    card.style.display=text.includes(query)?"":"none";
-  });
+let currentCategory="all";
+let currentQuery="";
 
-  if(query){
-    document.getElementById("categories").scrollIntoView({behavior:"smooth"});
-  }
+const categoryWords={
+ forest:["forest","jungle","woodland","woods","tree","trees","বন","জঙ্গল"],
+ mountains:["mountain","mountains","mountain view","hill","hills","peak","পাহাড়"],
+ water:["river","water","waterfall","lake","sea","ocean","নদী","পানি"],
+ sunset:["sunset","sunrise","golden hour","evening","dawn","সূর্যাস্ত"],
+ flowers:["flower","flowers","blossom","garden","ফুল"],
+ wildlife:["wildlife","bird","birds","animal","animals","পাখি"],
+ village:["bangladesh","bangladesh nature","village","countryside","rural","rice field","ধানক্ষেত","গ্রাম","বাংলাদেশ"],
+ sky:["sky","cloud","clouds","blue sky","আকাশ","মেঘ"],
+ rain:["rain","mist","fog","rainy","বৃষ্টি","কুয়াশা"],
+ night:["night","stars","star","moon","galaxy","রাত","তারা"]
+};
+
+function normalize(text){
+ return text.toLowerCase().trim();
+}
+
+function findCategory(query){
+ const q=normalize(query);
+ for(const [category,words] of Object.entries(categoryWords)){
+  if(words.some(word=>q.includes(word)||word.includes(q))) return category;
+ }
+ return null;
+}
+
+function updateGallery(){
+ let visible=0;
+
+ galleryCards.forEach(card=>{
+  const category=card.dataset.category;
+  const text=normalize(card.innerText+" "+card.dataset.tags);
+  const categoryMatch=currentCategory==="all"||category===currentCategory;
+  const queryMatch=!currentQuery||text.includes(normalize(currentQuery))||
+   (findCategory(currentQuery)===category);
+
+  const show=categoryMatch&&queryMatch;
+  card.style.display=show?"":"none";
+  if(show) visible++;
+ });
+
+ noResults.style.display=visible===0?"block":"none";
+ resultLabel.textContent=currentQuery
+  ?"Search results for: "+currentQuery+" ("+visible+")"
+  :currentCategory==="all"?"Showing all photos ("+visible+")":"Showing "+currentCategory+" photos ("+visible+")";
+
+ filterButtons.forEach(btn=>{
+  btn.classList.toggle("active",btn.dataset.filter===currentCategory);
+ });
+}
+
+function chooseCategory(category){
+ currentCategory=category;
+ currentQuery="";
+ searchInput.value="";
+ updateGallery();
+ document.getElementById("gallery").scrollIntoView({behavior:"smooth"});
+ navLinks.classList.remove("active");
+ dropdown.classList.remove("open");
+ menuToggle.textContent="☰";
+}
+
+// SEARCH SUBMIT
+searchForm.addEventListener("submit",event=>{
+ event.preventDefault();
+ const query=searchInput.value.trim();
+ if(!query) return;
+
+ currentQuery=query;
+ const matchedCategory=findCategory(query);
+ currentCategory=matchedCategory||"all";
+ updateGallery();
+
+ searchForm.classList.remove("show");
+ document.getElementById("gallery").scrollIntoView({behavior:"smooth"});
+});
+
+// FILTER BUTTONS
+filterButtons.forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  chooseCategory(btn.dataset.filter);
+ });
+});
+
+// CATEGORY CARDS
+document.querySelectorAll(".category-card,.bd-main,.bd-small").forEach(card=>{
+ card.addEventListener("click",event=>{
+  event.preventDefault();
+  chooseCategory(card.dataset.category||"all");
+ });
+});
+
+// DROPDOWN CATEGORY LINKS
+document.querySelectorAll(".dropdown-menu a").forEach(link=>{
+ link.addEventListener("click",event=>{
+  event.preventDefault();
+  chooseCategory(link.dataset.filter);
+ });
+});
+
+// SHOW ALL
+document.getElementById("resetGallery").addEventListener("click",()=>{
+ chooseCategory("all");
 });
 
 // REVEAL ANIMATION
 const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("visible");
+   observer.unobserve(entry.target);
+  }
+ });
 },{threshold:.12});
 
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-// SEARCH ENTER
-siteSearch.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    siteSearch.value="";
-    siteSearch.dispatchEvent(new Event("input"));
-    searchPanel.classList.remove("show");
-  }
+// CLOSE MENU ON NAV LINK
+navLinks.querySelectorAll("a").forEach(link=>{
+ link.addEventListener("click",()=>{
+  navLinks.classList.remove("active");
+  menuToggle.textContent="☰";
+ });
+});
+
+// ESCAPE CLOSES SEARCH
+searchInput.addEventListener("keydown",event=>{
+ if(event.key==="Escape") searchForm.classList.remove("show");
 });
 </script>
 
